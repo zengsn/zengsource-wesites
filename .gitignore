@@ -1,0 +1,9 @@
+*.class
+
+irest-massage-chair/target/
+
+# settings
+irest-massage-chair/.settings/
+irest-massage-chair/.classpath
+irest-massage-chair/.project
+irest-massage-chair/.springBeans
