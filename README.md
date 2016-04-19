@@ -1,2 +1,2 @@
-# zengsource-wesites
-WeSites - Business websites platform for WeChat
+# WeSites
+A business mobile website platform based on WeChat.
