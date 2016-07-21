@@ -17,7 +17,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <h1>管理员登录</h1> 
    </header> 
    <main role="main"> 
-    <form accept-charset="UTF-8" action="/login" class="simple_form new_user" id="new_user" method="post"> 
+    <form accept-charset="UTF-8" action="/weixin/MangerServlet" class="simple_form new_user" id="new_user" method="post"> 
      <div style="display:none"> 
       <input name="utf8" type="hidden" value="✓" /> 
       <input name="authenticity_token" type="hidden" value="CosfSkRc4uNrqhk4mnXoHSr5cF/CfK4wLiCYEZKT96s=" /> 
