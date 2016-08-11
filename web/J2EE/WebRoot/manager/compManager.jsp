@@ -7,22 +7,83 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
-    <base href="<%=basePath%>">
-    
-    <title>My JSP 'compManager.jsp' starting page</title>
-    
-	<meta http-equiv="pragma" content="no-cache">
-	<meta http-equiv="cache-control" content="no-cache">
-	<meta http-equiv="expires" content="0">    
-	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-	<meta http-equiv="description" content="This is my page">
-	<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-  </head>
-  
-  <body>
-    This is my JSP page. <br>
-  </body>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <title></title>
+    <link href="../styles/Common.css" rel="stylesheet" />
+    <link href="../styles/Index2.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <h4>数据列表</h4>
+            <div class="add"><a class="btn btn-success" onclick="openadd();">新增</a></div>
+            <div class="w">
+                <div class="span12">
+                    <table class="table table-condensed table-bordered table-hover tab">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody"></tbody>
+                    </table>
+                    <div id="page" class="tr"></div>
+                </div>
+            </div>
+
+
+            <div id="addModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h3 id="myModalLabel">添加成绩</h3>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal">
+                        <div class="control-group">
+                            <label class="control-label" for="userName">姓名</label>
+                            <div class="controls">
+                                <input type="text" id="userName" placeholder="姓名">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="Chinese">语文</label>
+                            <div class="controls">
+                                <input type="text" id="Chinese" placeholder="语文">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="Math">数学</label>
+                            <div class="controls">
+                                <input type="text" id="Math" placeholder="数学">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="English">英语</label>
+                            <div class="controls">
+                                <input type="text" id="English" placeholder="英语">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+                    <button class="btn btn-primary" id="add" onclick="add();">保存</button>
+                    <button class="btn btn-primary" id="edt" onclick="edt();">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/jquery-1.9.1.min.js"></script>
+    <script src="../bootstrap/js/bootstrap.min.js"></script>
+    <script src="../layer/layer/layer.js"></script>
+    <script src="../js/Index2.js"></script>
+</body>
 </html>
