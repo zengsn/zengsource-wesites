@@ -20,13 +20,15 @@
 	</package>
 	
 	<package name="Manager"  extends="struts-default" >	
-		<action name="compManager" >
+		<action name="compManager" class="com.j2ee.action.ManagerAction">
 			<result name="success" type="redirect">/manager/compManager.jsp</result>
 		</action>
 		
 		<action name="contManager" >
 			<result name="success" type="redirect">/manager/contManager.jsp</result>
 		</action>
+		
+
 	</package>
 
 

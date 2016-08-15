@@ -15,6 +15,7 @@
 	
 	
 		<mapping resource = "com/j2ee/pojo/User.hbm.xml"/>
+		<mapping resource = "com/j2ee/pojo/Role.hbm.xml"/>
 	</session-factory>
 	
 	

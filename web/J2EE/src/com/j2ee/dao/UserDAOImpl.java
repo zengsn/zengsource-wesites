@@ -17,13 +17,17 @@ public class UserDAOImpl implements IUserDAO{
 	public Session session = null;
 	Transaction tx = null;
 
+	private void init()
+	{
+		session = HibernateUtil.currentSession();
+		tx = session.beginTransaction();
+	}
 	@Override
 	public void save(User user) {
 		// TODO Auto-generated method stub
 		try
 		{
-			session = HibernateUtil.currentSession();
-			tx = session.beginTransaction();
+			init();
 			session.save(user);
 			tx.commit ();
 		}catch(HibernateException e){
@@ -31,7 +35,7 @@ public class UserDAOImpl implements IUserDAO{
 				tx.rollback();
 			}
 		}finally{
-			HibernateUtil.closeSession();
+
 		}
 		
 	}
@@ -41,8 +45,7 @@ public class UserDAOImpl implements IUserDAO{
 		// TODO Auto-generated method stub
 		try
 		{
-			session = HibernateUtil.currentSession();
-			tx = session.beginTransaction();
+			init();
 			session.delete(user);
 			tx.commit ();
 		}catch(HibernateException e){
@@ -50,7 +53,7 @@ public class UserDAOImpl implements IUserDAO{
 				tx.rollback();
 			}
 		}finally{
-			HibernateUtil.closeSession();
+
 		}
 	}
 
@@ -59,8 +62,7 @@ public class UserDAOImpl implements IUserDAO{
 		// TODO Auto-generated method stub
 		try
 		{
-			session = HibernateUtil.currentSession();
-			tx = session.beginTransaction();
+			init();
 			session.update(user);
 			tx.commit ();
 		}catch(HibernateException e){
@@ -68,7 +70,7 @@ public class UserDAOImpl implements IUserDAO{
 				tx.rollback();
 			}
 		}finally{
-			HibernateUtil.closeSession();
+
 		}
 	}
 
@@ -78,8 +80,7 @@ public class UserDAOImpl implements IUserDAO{
 		User user = null;
 		try
 		{
-			session = HibernateUtil.currentSession();
-			tx = session.beginTransaction();
+			init();
 			user = (User) session.get(User.class,id);
 			tx.commit ();
 		}catch(HibernateException e){
@@ -87,7 +88,7 @@ public class UserDAOImpl implements IUserDAO{
 				tx.rollback();
 			}
 		}finally{
-			HibernateUtil.closeSession();
+
 		}
 		return user;
 	}
@@ -98,8 +99,7 @@ public class UserDAOImpl implements IUserDAO{
 		List<User> users = null;
 		try
 		{
-			session = HibernateUtil.currentSession();
-			tx = session.beginTransaction();
+			init();
 			users = session.createQuery("from User a").list();
 			tx.commit ();
 		}catch(HibernateException e){
@@ -107,7 +107,7 @@ public class UserDAOImpl implements IUserDAO{
 				tx.rollback();
 			}
 		}finally{
-			HibernateUtil.closeSession();
+
 		}
 		return users;
 	}
@@ -115,6 +115,7 @@ public class UserDAOImpl implements IUserDAO{
 	@Override
 	public Long count(String hql, Object[] param) {
 		// TODO Auto-generated method stub
+		init();
 		Query q = session.createQuery(hql);
 		if(param != null && param.length>0)
 		{
@@ -123,15 +124,14 @@ public class UserDAOImpl implements IUserDAO{
 		}
 		int size = q.list().size();
 		tx.commit ();
-		HibernateUtil.closeSession();
+
 		return new Long((long)size);
 	}
 
 	@Override
 	public User findUserByName(String name) {
 		// TODO Auto-generated method stub
-		session = HibernateUtil.currentSession();
-		tx = session.beginTransaction();
+		 init();
 		 String hql = "from User as u where u.username=?";
 		  Query query = session.createQuery(hql);
 		  query.setString(0, name);

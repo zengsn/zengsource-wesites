@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags" %>   
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -14,27 +15,96 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <title></title>
     <link href="../styles/Common.css" rel="stylesheet" />
     <link href="../styles/Index2.css" rel="stylesheet" />
+    
+    <script type="text/javascript">
+    
+        function validate()
+        {
+            var page = document.getElementsByName("page")[0].value;
+                
+            if(page > <s:property value="#session.pageBean.totalPage"/>)
+            {
+                alert("你输入的页数大于最大页数，页面将跳转到首页！");
+                
+                window.document.location.href = "compManager.action";
+                
+                return false;
+            }
+            
+            return true;
+        }
+    
+    </script>
 </head>
 <body>
     <div class="container-fluid">
         <div class="row-fluid">
-            <h4>数据列表</h4>
+            <h4>企业管理员</h4>
             <div class="add"><a class="btn btn-success" onclick="openadd();">新增</a></div>
             <div class="w">
                 <div class="span12">
                     <table class="table table-condensed table-bordered table-hover tab">
-                        <thead>
+                        
                             <tr>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                            </tr>
-                        </thead>
+            					<th>姓名</th>
+            					<th>等级</th>
+           						<th>创建时间</th>
+            					<th>手机号码</th>
+        					</tr>
+    
+    
+    					<s:iterator value="#session.pageBean.list" id="role">
+    
+        					<tr>
+            					<th><s:property value="#role.rolename"/></th>
+            					<th><s:property value="#role.rolerate"/></th>
+            					<th><s:property value="#role.createtime"/></th>   
+            					<th><s:property value="#role.phonenumber"/></th>       
+        					</tr>
+    
+    					</s:iterator>
+                        
                         <tbody id="tbody"></tbody>
                     </table>
-                    <div id="page" class="tr"></div>
+                    <div id="page" class="tr">
+                    <center>
+    
+        				<font size="5">共<font color="red">${sessionScope.pageBean.getTotalPage()}</font>页 </font>&nbsp;&nbsp;
+        				<font size="5">共<font color="red">${sessionScope.pageBean.getAllRow()}</font>条记录</font><br><br>
+        
+       					<s:if test="#session.pageBean.currentPage == 1">
+            				首页&nbsp;&nbsp;&nbsp;上一页
+        				</s:if>
+        
+        				<s:else>
+            				<a href="compManager.action">首页</a>
+            				&nbsp;&nbsp;&nbsp;
+            				<a href="compManager.action?page=<s:property value="#session.pageBean.currentPage - 1"/>">上一页</a>
+        				</s:else>
+        
+        				<s:if test="#session.pageBean.currentPage != #session.pageBean.totalPage">
+            				<a href="compManager.action?page=<s:property value="#session.pageBean.currentPage + 1"/>">下一页</a>
+            				&nbsp;&nbsp;&nbsp;
+            				<a href="compManager.action?page=<s:property value="#session.pageBean.totalPage"/>">尾页</a>
+        				</s:if>
+        
+        				<s:else>
+            				下一页&nbsp;&nbsp;&nbsp;尾页
+        				</s:else>
+    
+    				</center><br>
+    
+    				<center>
+        
+        				<form action="compManager.action" onsubmit="return validate();">
+            				<font size="4">跳转至</font>
+            				<input type="text" size="2" name="page">页
+            				<input type="submit" value="跳转">
+       					</form>
+        
+    				</center>
+                    
+                    </div>
                 </div>
             </div>
 
@@ -42,34 +112,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <div id="addModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    <h3 id="myModalLabel">添加成绩</h3>
+                    <h3 id="myModalLabel">添加管理员</h3>
                 </div>
                 <div class="modal-body">
                     <form class="form-horizontal">
                         <div class="control-group">
-                            <label class="control-label" for="userName">姓名</label>
+                            <label class="control-label" for="roleName">姓名</label>
                             <div class="controls">
                                 <input type="text" id="userName" placeholder="姓名">
                             </div>
                         </div>
                         <div class="control-group">
-                            <label class="control-label" for="Chinese">语文</label>
+                            <label class="control-label" for="roleRate">等级</label>
                             <div class="controls">
-                                <input type="text" id="Chinese" placeholder="语文">
+                                <input type="text" id="Chinese" placeholder="等级">
                             </div>
                         </div>
                         <div class="control-group">
-                            <label class="control-label" for="Math">数学</label>
+                            <label class="control-label" for="phoneNumber">手机号码</label>
                             <div class="controls">
-                                <input type="text" id="Math" placeholder="数学">
+                                <input type="text" id="Math" placeholder="手机号码">
                             </div>
                         </div>
-                        <div class="control-group">
-                            <label class="control-label" for="English">英语</label>
-                            <div class="controls">
-                                <input type="text" id="English" placeholder="英语">
-                            </div>
-                        </div>
+                        
                     </form>
                 </div>
                 <div class="modal-footer">
