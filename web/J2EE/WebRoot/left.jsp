@@ -145,12 +145,12 @@ function list(idstr){
 				<tr>
 				  <td width="9%" height="20" ><img id="xiaotu3" src="../images/ico06.gif" width="8" height="12" /></td>
 				  <td width="91%">
-						<a href="compManager.action" target="mainFrame" class="left-font03" onClick="tupian('3');">企业管理员</a></td>
+						<a href="compManager.action?rate=1" target="mainFrame" class="left-font03" onClick="tupian('3');">企业管理员</a></td>
 				</tr>
 				<tr>
 				  <td width="9%" height="20" ><img id="xiaotu4" src="../images/ico06.gif" width="8" height="12" /></td>
 				  <td width="91%">
-					<a href="contManager.action" target="mainFrame" class="left-font03" onClick="tupian('4');">内容管理员</a></td>
+					<a href="contManager.action?rate=2" target="mainFrame" class="left-font03" onClick="tupian('4');">内容管理员</a></td>
 				</tr>
 				
       </table>

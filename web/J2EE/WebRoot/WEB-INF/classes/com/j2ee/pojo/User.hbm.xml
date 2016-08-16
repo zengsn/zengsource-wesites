@@ -23,6 +23,12 @@
 		<column name="EMAIL" length="50"/>
 	</property>
 	
+	<set name="roles" inverse="true" lazy="false" >
+		<key>
+			<column name="USERID" length="50"/>
+		</key>
+		<one-to-many class="com.j2ee.pojo.Role"/>
+	</set>
 
 	
 	 

@@ -26,7 +26,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             {
                 alert("你输入的页数大于最大页数，页面将跳转到首页！");
                 
-                window.document.location.href = "compManager.action";
+                window.document.location.href = "compManager.action?rate=1";
                 
                 return false;
             }
@@ -71,21 +71,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
         				<font size="5">共<font color="red">${sessionScope.pageBean.getTotalPage()}</font>页 </font>&nbsp;&nbsp;
         				<font size="5">共<font color="red">${sessionScope.pageBean.getAllRow()}</font>条记录</font><br><br>
-        
+        				<br><font size="5">第<font color="red">${sessionScope.pageBean.getCurrentPage()}</font>页</font><br><br>
        					<s:if test="#session.pageBean.currentPage == 1">
             				首页&nbsp;&nbsp;&nbsp;上一页
         				</s:if>
         
         				<s:else>
-            				<a href="compManager.action">首页</a>
+            				<a href="compManager.action?rate=1">首页</a>
             				&nbsp;&nbsp;&nbsp;
-            				<a href="compManager.action?page=<s:property value="#session.pageBean.currentPage - 1"/>">上一页</a>
+            				<a href="compManager.action?rate=1&page=<s:property value="#session.pageBean.currentPage - 1"/>">上一页</a>
         				</s:else>
         
         				<s:if test="#session.pageBean.currentPage != #session.pageBean.totalPage">
-            				<a href="compManager.action?page=<s:property value="#session.pageBean.currentPage + 1"/>">下一页</a>
+            				<a href="compManager.action?rate=1&page=<s:property value="#session.pageBean.currentPage + 1"/>">下一页</a>
             				&nbsp;&nbsp;&nbsp;
-            				<a href="compManager.action?page=<s:property value="#session.pageBean.totalPage"/>">尾页</a>
+            				<a href="compManager.action?rate=1&page=<s:property value="#session.pageBean.totalPage"/>">尾页</a>
         				</s:if>
         
         				<s:else>
@@ -94,15 +94,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
     				</center><br>
     
-    				<center>
-        
-        				<form action="compManager.action" onsubmit="return validate();">
-            				<font size="4">跳转至</font>
-            				<input type="text" size="2" name="page">页
-            				<input type="submit" value="跳转">
-       					</form>
-        
-    				</center>
+    				
                     
                     </div>
                 </div>
@@ -115,33 +107,33 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <h3 id="myModalLabel">添加管理员</h3>
                 </div>
                 <div class="modal-body">
-                    <form class="form-horizontal">
+                    <form class="form-horizontal" action="DoManagerAction">
                         <div class="control-group">
                             <label class="control-label" for="roleName">姓名</label>
                             <div class="controls">
-                                <input type="text" id="userName" placeholder="姓名">
+                                <s:textfield name="rolename" label="rolename" type="text"  placeholder="姓名"/>
                             </div>
                         </div>
                         <div class="control-group">
                             <label class="control-label" for="roleRate">等级</label>
                             <div class="controls">
-                                <input type="text" id="Chinese" placeholder="等级">
+                                <s:textfield name="rolerate" label="rolerate" type="text"  placeholder="等级"/>
                             </div>
                         </div>
                         <div class="control-group">
                             <label class="control-label" for="phoneNumber">手机号码</label>
                             <div class="controls">
-                                <input type="text" id="Math" placeholder="手机号码">
+                                <s:textfield name="phonenumber" label="phonenumber" placeholder="手机号码"/>
                             </div>
                         </div>
-                        
+                        <div class="modal-footer">
+                   		<button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+                    	<s:submit  value="保存 " class="btn" ></s:submit>
+                    	<button class="btn btn-primary" id="edt" onclick="edt();">保存</button>
+                </div>
                     </form>
                 </div>
-                <div class="modal-footer">
-                    <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
-                    <button class="btn btn-primary" id="add" onclick="add();">保存</button>
-                    <button class="btn btn-primary" id="edt" onclick="edt();">保存</button>
-                </div>
+                
             </div>
         </div>
     </div>

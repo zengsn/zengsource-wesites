@@ -9,7 +9,7 @@
 			<generator class="identity"></generator>
 		</id>
 		
-
+	
 	
 	<property name="rolename" type="java.lang.String">
 		<column name="ROLENAME" length="20" not-null="true"/>
@@ -26,7 +26,15 @@
 	<property name="phonenumber" type="java.lang.String">
 		<column name="PHONENUMBER" length="11" />
 	</property>
+	
+	<property name="userid" type="java.lang.Integer">
+		<column name="USERID" not-null="true" />
+	</property>
 
+	<many-to-one name="user" class="com.j2ee.pojo.User" update="false" insert="false" fetch="select">
+		<column name="ID" length="50" />
+	</many-to-one>
+	
 	</class>
 
 </hibernate-mapping>

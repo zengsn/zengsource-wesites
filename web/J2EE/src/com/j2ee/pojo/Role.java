@@ -11,6 +11,8 @@ public class Role {
 	private Integer rolerate;
 	private Timestamp createtime = new Timestamp(System.currentTimeMillis());
 	private String phonenumber;
+	private Integer userid;
+	private User user;
 	
 	public Integer getRoleid() {
 		return roleid;
@@ -42,7 +44,18 @@ public class Role {
 	public void setPhonenumber(String phonenumber) {
 		this.phonenumber = phonenumber;
 	}
+	public Integer getUserid() {
+		return userid;
+	}
+	public void setUserid(Integer userid) {
+		this.userid = userid;
+	}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
 	
-
 
 }

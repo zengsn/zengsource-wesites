@@ -7,7 +7,7 @@ import com.j2ee.pojo.Role;
 
 public interface IRoleDAO extends IBaseDAO<Role>{
 	
-	public List<Role> queryForPage(String hql,int offset,int length);
+	public List<Role> queryForPage(String hql,int offset,int length,int rate);
 	public int getCount(String hql);
 
 }

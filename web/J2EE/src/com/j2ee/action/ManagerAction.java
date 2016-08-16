@@ -13,7 +13,7 @@ import com.opensymphony.xwork2.ActionSupport;
 public class ManagerAction extends ActionSupport{
 	private int page;
     private PageBean pageBean;
-    
+    private int rate;
     
    
     public int getPage() {
@@ -35,10 +35,23 @@ public class ManagerAction extends ActionSupport{
 		this.pageBean = pageBean;
 	}
 	
+	
+	public int getRate() {
+		return rate;
+	}
+
+
+	public void setRate(int rate) {
+		this.rate = rate;
+	}
+
+
+
+
 	public String execute() throws Exception
 	{
 		IRoleService roleService = new RoleService();
-		PageBean pageBean = roleService.queryForPage(5, page);
+		PageBean pageBean = roleService.queryForPage(5, page,rate);
 		HttpServletRequest request = ServletActionContext.getRequest();
 		request.getSession().setAttribute("pageBean", pageBean);
 		return "success";
