@@ -28,7 +28,9 @@
 			<result name="success" type="redirect">/manager/contManager.jsp</result>
 		</action>
 		
-
+		<action name="doManager" class="com.j2ee.action.DoManagerAction">
+			<result name="success" type="dispatcher">/manager/compManager.jsp</result>
+		</action>
 	</package>
 
 

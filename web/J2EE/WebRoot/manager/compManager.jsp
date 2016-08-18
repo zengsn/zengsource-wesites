@@ -107,7 +107,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <h3 id="myModalLabel">添加管理员</h3>
                 </div>
                 <div class="modal-body">
-                    <form class="form-horizontal" action="DoManagerAction">
+                    <form class="form-horizontal" action="doManager.action">
                         <div class="control-group">
                             <label class="control-label" for="roleName">姓名</label>
                             <div class="controls">

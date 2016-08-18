@@ -39,7 +39,7 @@ public class DoManagerAction extends ActionSupport{
 		this.phonenumber = phonenumber;
 	}
 	public String execute() throws Exception{
-	    
+	    add();
 		return "success";
 	}
 	
