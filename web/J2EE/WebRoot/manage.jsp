@@ -11,7 +11,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
     <title>My JSP 'manage.jsp' starting page</title>
     
-
+ 
 
   </head>
   

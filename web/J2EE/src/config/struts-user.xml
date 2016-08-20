@@ -32,6 +32,12 @@
 			<result name="success" type="dispatcher">/manager/compManager.jsp</result>
 		</action>
 	</package>
+	
+	<package name="Account"  extends="struts-default" >	
+		<action name="showAccount" >
+			<result name="success" type="redirect">/WechatAccount/showAccount.jsp</result>
+		</action>
+	</package>
 
 
 </struts>

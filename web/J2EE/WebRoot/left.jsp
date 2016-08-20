@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>人力资源管理系统</title>
+    <title>企业微信管理系统</title>
 <style type="text/css">
 <!--
 body {
@@ -97,7 +97,6 @@ function list(idstr){
 		
 
 
-		<!--  任务系统开始    -->
 		<TABLE width="100%" border="0" cellpadding="0" cellspacing="0" class="left-table03">
           <tr>
             <td height="29">
@@ -115,18 +114,14 @@ function list(idstr){
 				cellspacing="0" class="left-table02">
 				<tr>
 				  <td width="9%" height="20" ><img id="xiaotu1" src="../images/ico06.gif" width="8" height="12" /></td>
-				  <td width="91%"><a href="adduser.do" target="mainFrame" class="left-font03" onClick="tupian('1');">已绑定的公众号</a></td>
+				  <td width="91%"><a href="showAccount.action" target="mainFrame" class="left-font03" onClick="tupian('1');">已绑定的公众号</a></td>
 				</tr>
 				<tr>
 				  <td width="9%" height="21" ><img id="xiaotu2" src="../images/ico06.gif" width="8" height="12" /></td>
 				  <td width="91%"><a href="user.do?action=listuser" target="mainFrame" class="left-font03" onClick="tupian('2');">已绑定的公众号</a></td>
 				</tr>
       </table>
-		<!--  任务系统结束    -->
 
-		
-
-		<!--  消息系统开始    -->
 		<TABLE width="100%" border="0" cellpadding="0" cellspacing="0" class="left-table03">
           <tr>
             <td height="29">
@@ -154,7 +149,7 @@ function list(idstr){
 				</tr>
 				
       </table>
-		<!--  消息系统结束    -->
+
 
 
 
@@ -186,9 +181,7 @@ function list(idstr){
 				  <td width="91%"><a href="educate.do?action=listeducate&educate=1" target="mainFrame" class="left-font03" onClick="tupian('8');">未配置</a></td>
 				</tr>
       </table>
-		<!--  项目系统结束    -->
 
-	  <!--  客户系统开始    -->
 	  <table width="100%" border="0" cellpadding="0" cellspacing="0" class="left-table03">
           <tr>
             <td height="29"><table width="85%" border="0" align="center" cellpadding="0" cellspacing="0">
@@ -212,9 +205,7 @@ function list(idstr){
         </tr>
       </table>
 
-	  <!--  客户系统结束    -->
 
-	  <!--  人员系统开始    -->
 	  <table width="100%" border="0" cellpadding="0" cellspacing="0" class="left-table03">
           <tr>
             <td height="29"><table width="85%" border="0" align="center" cellpadding="0" cellspacing="0">
@@ -237,7 +228,7 @@ function list(idstr){
         </tr>
       </table>
 	
-	  <!--  人员系统结束    -->
+
 	  </TD>
   </tr>
   
