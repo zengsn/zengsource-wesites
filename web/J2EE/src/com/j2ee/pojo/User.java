@@ -9,6 +9,7 @@ public class User {
 	private String password;
 	private String email;
 	private Set<Role> roles = new HashSet<Role>(0);
+
 	
 	public Integer getId() {
 		return id;
@@ -42,7 +43,5 @@ public class User {
 		this.roles = roles;
 	}
 	
-	
-
 
 }

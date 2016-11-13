@@ -1,12 +1,13 @@
 package com.j2ee.util;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.j2ee.pojo.Role;
 
 @SuppressWarnings("unchecked")
-public class PageBean {
+public class PageBean<T> {
 	
-	     private List<Role> list;// 要返回的某一页的记录列表
+	     private List<T> list = new ArrayList<T>();
 	      
 	     private int allRow; // 总记录数
 	     private int totalPage; // 总页数
@@ -22,15 +23,17 @@ public class PageBean {
 	     @SuppressWarnings("unused")
 	     private boolean hasNextPage;// 是否有下一页
 	 
-	     public List<Role> getList() {
-	         return list;
-	     }
+	     
 	 
-	     public void setList(List<Role> list) {
-	         this.list = list;
-	     }
-	 
-	     public int getAllRow() {
+	     public List<T> getList() {
+			return list;
+		}
+
+		public void setList(List<T> list) {
+			this.list = list;
+		}
+
+		public int getAllRow() {
 	         return allRow;
 	     }
 	 

@@ -12,10 +12,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-    <title></title>
     <link href="../styles/Common.css" rel="stylesheet" />
     <link href="../styles/Index2.css" rel="stylesheet" />
-    
+    <title></title>
     <script type="text/javascript">
     
         function validate()
@@ -39,7 +38,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <body>
     <div class="container-fluid">
         <div class="row-fluid">
-            <h4>企业管理员</h4>
+   		<fieldset style="height:100%;">
+		<legend>企业管理员</legend>
+		
             <div class="add"><a class="btn btn-success" onclick="openadd();">新增</a></div>
             <div class="w">
                 <div class="span12">
@@ -130,12 +131,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                    		<button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
                     	<s:submit  value="保存 " class="btn" ></s:submit>
                     	<button class="btn btn-primary" id="edt" onclick="edt();">保存</button>
-                </div>
+                		</div>
                     </form>
                 </div>
                 
             </div>
         </div>
+        </fieldset>
     </div>
 
     <script src="../js/jquery-1.9.1.min.js"></script>

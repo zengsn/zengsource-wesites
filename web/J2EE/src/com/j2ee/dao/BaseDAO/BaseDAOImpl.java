@@ -7,8 +7,6 @@ import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-
-import com.j2ee.pojo.User;
 import com.j2ee.util.HibernateUtil;
 
 public class BaseDAOImpl<T> implements IBaseDAO<T>{
@@ -97,7 +95,20 @@ public class BaseDAOImpl<T> implements IBaseDAO<T>{
 	@Override
 	public T findById(Class<T> c, Integer id) {
 		// TODO Auto-generated method stub
-		return null;
+		T a = null;
+		try
+		{
+			init();
+			a = (T) session.get(c,id);
+			tx.commit ();
+		}catch(HibernateException e){
+			if (tx!=null) {
+				tx.rollback();
+			}
+		}finally{
+
+		}
+		return a;
 	}
 
 	@Override

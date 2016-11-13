@@ -29,7 +29,7 @@
 		</key>
 		<one-to-many class="com.j2ee.pojo.Role"/>
 	</set>
-
+	
 	
 	 
 	

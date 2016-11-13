@@ -160,21 +160,22 @@ function list(idstr){
 					<tr>
 						<td width="8%"><img name="img1" id="img1" src="../images/ico04.gif" width="8" height="11" /></td>
 						<td width="92%">
-								<a href="javascript:" target="mainFrame" class="left-font03" onClick="list('1');" >未配置</a></td>
+								<a href="javascript:" target="mainFrame" class="left-font03" onClick="list('1');" >基础功能</a></td>
 					</tr>
 				</table>
 			</td>
           </tr>		  
         </TABLE>
+        
 		<table id="subtree1" style="DISPLAY: none" width="80%" border="0" align="center" cellpadding="0" 
 				cellspacing="0" class="left-table02">
 				<tr>
 				  <td width="9%" height="20" ><img id="xiaotu6" src="../images/ico06.gif" width="8" height="12" /></td>
-				  <td width="91%"><a href="addeducate.do" target="mainFrame" class="left-font03" onClick="tupian('6');">未配置</a></td>
+				  <td width="91%"><a href="AutoReply.action" target="mainFrame" class="left-font03" onClick="tupian('6');">关键词回复</a></td>
 				</tr>
 				<tr>
 				  <td width="9%" height="20" ><img id="xiaotu7" src="../images/ico06.gif" width="8" height="12" /></td>
-				  <td width="91%"><a href="educate.do?action=listeducate" target="mainFrame" class="left-font03" onClick="tupian('7');">未配置</a></td>
+				  <td width="91%"><a href="MenuManage.action" target="mainFrame" class="left-font03" onClick="tupian('7');">自定义菜单管理</a></td>
 				</tr>
 				<tr>
 				  <td width="9%" height="20" ><img id="xiaotu8" src="../images/ico06.gif" width="8" height="12" /></td>
@@ -187,7 +188,7 @@ function list(idstr){
             <td height="29"><table width="85%" border="0" align="center" cellpadding="0" cellspacing="0">
                 <tr>
                   <td width="8%" height="12"><img name="img2" id="img2" src="../images/ico04.gif" width="8" height="11" /></td>
-                  <td width="92%"><a href="javascript:" target="mainFrame" class="left-font03" onClick="list('2');" >未配置</a></td>
+                  <td width="92%"><a href="javascript:" target="mainFrame" class="left-font03" onClick="list('2');" >企业功能</a></td>
                 </tr>
             </table></td>
           </tr>
@@ -206,28 +207,7 @@ function list(idstr){
       </table>
 
 
-	  <table width="100%" border="0" cellpadding="0" cellspacing="0" class="left-table03">
-          <tr>
-            <td height="29"><table width="85%" border="0" align="center" cellpadding="0" cellspacing="0">
-                <tr>
-                  <td width="8%" height="12"><img name="img3" id="img3" src="../images/ico04.gif" width="8" height="11" /></td>
-                  <td width="92%"><a href="javascript:" target="mainFrame" class="left-font03" onClick="list('3');" >未配置</a></td>
-                </tr>
-            </table></td>
-          </tr>
-      </table>
-	  
-	  <table id="subtree3" style="DISPLAY: none" width="80%" border="0" align="center" cellpadding="0" cellspacing="0" class="left-table02">
-        <tr>
-          <td width="9%" height="20" ><img id="xiaotu11" src="../images/ico06.gif" width="8" height="12" /></td>
-          <td width="91%"><a href="addstipend.do" target="mainFrame" class="left-font03" onClick="tupian('11');">未配置</a></td>
-        </tr>
-		<tr>
-          <td width="9%" height="20" ><img id="xiaotu12" src="../images/ico06.gif" width="8" height="12" /></td>
-          <td width="91%"><a href="stipend.do?action=liststipend" target="mainFrame" class="left-font03" onClick="tupian('12');">未配置</a></td>
-        </tr>
-      </table>
-	
+
 
 	  </TD>
   </tr>

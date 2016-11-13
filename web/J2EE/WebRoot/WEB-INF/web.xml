@@ -62,6 +62,24 @@
   		<url-pattern>/coreServlet</url-pattern>
 
   		</servlet-mapping>
+  		
+ <!--   		
+	<servlet>
 
+		<servlet-name>oAuthServlet</servlet-name>
+
+		<servlet-class>com.wechat.servlet.OAuthServlet</servlet-class>
+		
+	</servlet>
+
+
+  	<servlet-mapping>
+
+  		<servlet-name>oAuthServlet</servlet-name>
+
+  		<url-pattern>/oAuthServlet</url-pattern>
+
+  	</servlet-mapping>
+-->
 	
 </web-app>

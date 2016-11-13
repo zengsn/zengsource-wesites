@@ -19,7 +19,8 @@ public class HibernateUtil {
 
 	    private static SessionFactory sessionFactory;
 	    
-	    public static Session currentSession() throws HibernateException {
+	    @SuppressWarnings("unchecked")
+		public static Session currentSession() throws HibernateException {
 	        Session session = (Session) threadLocal.get();
 
 	        if (session == null) {

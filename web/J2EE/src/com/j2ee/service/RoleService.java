@@ -17,7 +17,7 @@ public class RoleService implements IRoleService{
 
 	private IRoleDAO dao = new RoleDAOImpl();
 	@Override
-	public PageBean queryForPage(int pageSize, int page,int rate) {
+	public PageBean<Role> queryForPage(int pageSize, int page,int rate) {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		User user = (User) request.getSession().getAttribute("users");
 		String hql = "select count(*) from Role where rolerate = " + rate+"and userid="+user.getId();
@@ -28,7 +28,7 @@ public class RoleService implements IRoleService{
 		int length = pageSize; // 每页记录数
 		int currentPage = PageBean.countCurrentPage(page);
 		List<Role> list = dao.queryForPage("from Role where rolerate=? and userid=?", offset, length,rate); // 该分页的记录
-		PageBean pageBean = new PageBean();
+		PageBean<Role> pageBean = new PageBean<Role>();
 		pageBean.setPageSize(pageSize);
 		pageBean.setCurrentPage(currentPage);
 		pageBean.setAllRow(count);

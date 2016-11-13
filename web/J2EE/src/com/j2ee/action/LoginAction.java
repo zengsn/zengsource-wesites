@@ -4,7 +4,10 @@ package com.j2ee.action;
 import javax.servlet.http.HttpServletRequest;
 import org.apache.struts2.ServletActionContext;
 import com.j2ee.pojo.User;
+import com.j2ee.pojo.Wechat;
+import com.j2ee.service.IWechatService;
 import com.j2ee.service.UserService;
+import com.j2ee.service.WechatService;
 import com.opensymphony.xwork2.ActionSupport;
 
 @SuppressWarnings("serial")
@@ -90,6 +93,10 @@ public class LoginAction extends ActionSupport{
 		{
 			System.out.println("成功登录,用户名:"+UserName+"密码:"+Password);
 			request.getSession().setAttribute("users",user2);
+			
+			IWechatService wechatService = new WechatService();
+			Wechat wechat = wechatService.queryWechatByID(1);
+			request.getSession().setAttribute("wechat",wechat);
 			return "success";
 		}
 		else

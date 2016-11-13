@@ -31,7 +31,7 @@
 		<column name="USERID" not-null="true" />
 	</property>
 
-	<many-to-one name="user" class="com.j2ee.pojo.User" update="false" insert="false" fetch="select">
+	<many-to-one name="user" class="com.j2ee.pojo.User"  fetch="select">
 		<column name="ID" length="50" />
 	</many-to-one>
 	

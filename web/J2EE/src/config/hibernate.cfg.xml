@@ -16,6 +16,9 @@
 	
 		<mapping resource = "com/j2ee/pojo/User.hbm.xml"/>
 		<mapping resource = "com/j2ee/pojo/Role.hbm.xml"/>
+		<mapping resource = "com/j2ee/pojo/AutoReply.hbm.xml"/>
+		<mapping resource = "com/j2ee/pojo/Wechat.hbm.xml"/>
+		<mapping resource = "com/j2ee/pojo/Menu.hbm.xml"/>
 	</session-factory>
 	
 	
