@@ -66,23 +66,29 @@ public class AddRuleAction extends ActionSupport{
 
 
 	public String execute() throws Exception{
-		add();
-		return "success";
+		try 
+		{
+			HttpServletRequest request = ServletActionContext.getRequest();
+			Wechat wechat = (Wechat) request.getSession().getAttribute("wechat");
+			AutoReplyDAOImpl dao = new AutoReplyDAOImpl();
+			AutoReply autoreply = new AutoReply();
+			autoreply.setRulename(rulename);
+			autoreply.setKeyword(keyword);
+			autoreply.setKeytype(keytype);
+			autoreply.setReplycontent(replycontent);
+			autoreply.setWechatid(wechat.getWechatid());
+			dao.save(autoreply);
+			
+			return "success";
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			return "fail";
+		}
+		
 	}
 	
-	public void add()
-	{
-		HttpServletRequest request = ServletActionContext.getRequest();
-		Wechat wechat = (Wechat) request.getSession().getAttribute("wechat");
-		AutoReplyDAOImpl dao = new AutoReplyDAOImpl();
-		AutoReply autoreply = new AutoReply();
-		autoreply.setRulename(rulename);
-		autoreply.setKeyword(keyword);
-		autoreply.setKeytype(keytype);
-		autoreply.setReplycontent(replycontent);
-		autoreply.setWechatid(wechat.getWechatid());
-		dao.save(autoreply);
-	}
+
 	
 
 }

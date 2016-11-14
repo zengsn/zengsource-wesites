@@ -94,7 +94,7 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
 					<td height="22" align="center" ><s:property value="#menu.type"/></td>
 					<td height="22" align="center" ><s:property value="#menu.action"/></td>
 					<td height="22" align="center" ><s:property value="#menu.respondaction"/></td>
-					<td height="22" align="center" >É¾³ý</td>
+					<td height="22" align="center" ><a href="DeleteMenu.action?menuid=<s:property value="#menu.menuid"/>">É¾³ý</a></td>
 				  </tr>
 				  </s:iterator>
 

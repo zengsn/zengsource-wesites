@@ -35,6 +35,7 @@ public class CoreService {
             textMessage.setCreateTime(new Date().getTime());
             textMessage.setMsgType(MessageUtil.RESP_MESSAGE_TYPE_TEXT);
             textMessage.setFuncFlag(0);
+            /*
             // 文本消息
             if (msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_TEXT)) {
                 respContent = "您发送的是文本消息！";
@@ -72,6 +73,7 @@ public class CoreService {
                     // TODO 自定义菜单权没有开放，暂不处理该类消息
                 }
             }
+            */
             textMessage.setContent(respContent);
             respMessage = MessageUtil.textMessageToXml(textMessage);
         } catch (Exception e) {

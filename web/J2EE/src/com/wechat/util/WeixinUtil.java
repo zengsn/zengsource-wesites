@@ -185,33 +185,36 @@ public class WeixinUtil {
 	}
 	
 
-	public static Menu initMenu(){
+	public static Menu initMenu(com.j2ee.pojo.Menu menu1){
 		Menu menu = new Menu();
 		ClickButton button11 = new ClickButton();
-		button11.setName("click�˵�");
+		button11.setName(menu1.getMenuname());
 		button11.setType("click");
+		button11.setType(menu1.getType());
 		button11.setKey("11");
 		
+		/*
 		ViewButton button21 = new ViewButton();
-		button21.setName("view�˵�");
+		button21.setName("view");
 		button21.setType("view");
 		button21.setUrl("http://www.imooc.com");
 		
 		ClickButton button31 = new ClickButton();
-		button31.setName("ɨ���¼�");
+		button31.setName("scancode");
 		button31.setType("scancode_push");
 		button31.setKey("31");
 		
 		ClickButton button32 = new ClickButton();
-		button32.setName("����λ��");
+		button32.setName("location");
 		button32.setType("location_select");
 		button32.setKey("32");
 		
 		Button button = new Button();
-		button.setName("�˵�");
+		button.setName("subbutton");
 		button.setSub_button(new Button[]{button31,button32});
+		*/
 		
-		menu.setButton(new Button[]{button11,button21,button});
+		menu.setButton(new Button[]{button11});
 		return menu;
 	}
 	

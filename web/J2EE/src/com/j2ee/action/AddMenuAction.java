@@ -61,7 +61,7 @@ public class AddMenuAction extends ActionSupport{
 			WeixinUtil.setAPPID(wechat.getAppid());
 			WeixinUtil.setAPPSECRET(wechat.getAppsecret());
 			AccessToken token = WeixinUtil.getAccessToken();
-			String menuXML = JSONObject.fromObject(WeixinUtil.initMenu()).toString();
+			String menuXML = JSONObject.fromObject(WeixinUtil.initMenu(menu)).toString();
 			int result = WeixinUtil.createMenu(token.getToken(),menuXML);
 			if(result == 0)
 				System.out.println("成功");
