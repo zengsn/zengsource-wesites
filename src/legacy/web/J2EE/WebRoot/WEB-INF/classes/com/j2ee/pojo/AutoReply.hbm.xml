@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name = "com.j2ee.pojo.AutoReply" table = "autoreply" catalog = "j2eeproject">
+		<id name = "ruleid" type = "java.lang.Integer">
+			<column name="RULEID"></column>
+			<generator class="identity"></generator>
+		</id>
+		
+
+	
+	<property name="rulename" type="java.lang.String">
+		<column name="RULENAME" length="20" not-null="true"/>
+	</property>
+	
+	<property name="keyword" type="java.lang.String">
+		<column name="KEYWORD" length="20"/>
+	</property>
+	
+	<property name="keytype" type="java.lang.String">
+		<column name="KEYTYPE" />
+	</property>
+	
+	<property name="replycontent" type="java.lang.String">
+		<column name="REPLYCONTENT" length="500"/>
+	</property>
+	
+	<property name="createtime" type = "java.sql.Timestamp">
+		<column name="CREATETIME" sql-type="datetime" length="19"/>
+	</property>
+
+	<many-to-one name="wechat" class="com.j2ee.pojo.Wechat"  fetch="select">
+		<column name="wechatid" length="50" />
+	</many-to-one>
+	
+	</class>
+
+</hibernate-mapping>
