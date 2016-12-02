@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+	<package name="loginAction" extends="struts-default">
+		<action name="login" class="com.wesites.core.LoginAction">
+			<result name="success" type="redirect">/manage.jsp</result>
+			<result name="fail">/index.jsp</result>
+		</action>
+	</package>
+
+	<package name="registerAction" extends="struts-default">
+		<action name="register" class="com.wesites.core.RegisterAction">
+			<result name="success" type="redirect">/login.jsp</result>
+			<result name="fail">/index.jsp</result>
+		</action>
+	</package>
+
+	<package name="Manager" extends="struts-default">
+		<action name="compManager" class="com.wesites.core.ManagerAction">
+			<result name="success" type="redirect">/manager/compManager.jsp</result>
+		</action>
+
+		<action name="contManager" class="com.wesites.core.ManagerAction">
+			<result name="success" type="redirect">/manager/contManager.jsp</result>
+		</action>
+
+		<action name="doManager" class="com.wesites.core.DoManagerAction">
+			<result name="success" type="redirect">/manager/compManager.jsp</result>
+		</action>
+	</package>
+
+	<package name="Account" extends="struts-default">
+		<action name="showAccount" class="com.wesites.core.WechatAction">
+			<result name="success">/WechatAccount/showAccount.jsp</result>
+		</action>
+	</package>
+
+	<package name="BasicFunction" extends="struts-default">
+		<action name="AutoReply" class="com.wesites.autoReply.AutoReplyAction">
+			<result name="success" type="redirect">/BasicFunction/showAllRule.jsp
+			</result>
+		</action>
+
+		<action name="AddRule" class="com.wesites.autoReply.AddRuleAction">
+			<result name="success" type="redirect">index.jsp</result>
+		</action>
+
+		<action name="DeleteRule" class="com.wesites.autoReply.DeleteRuleAction">
+			<result name="success" type="redirect">index.jsp</result>
+		</action>
+
+		<action name="Menu" class="com.wesites.menu.MenuAction">
+			<result name="success" type="redirect">/BasicFunction/MenuManage.jsp
+			</result>
+			<result name="fail" type="redirect">index.jsp</result>
+		</action>
+
+
+	</package>
+
+
+
+</struts>
