@@ -88,6 +88,7 @@ public class ConnectServlet extends HttpServlet {
 	 */
 	public String doProcess(HttpServletRequest request) {
 		String respMessage = null;
+		
 		try {
 			// 默认返回的文本消息内容
 			String respContent = "请求处理异常，请稍候尝试！";
@@ -106,6 +107,8 @@ public class ConnectServlet extends HttpServlet {
 			textMessage.setCreateTime(new Date().getTime());
 			textMessage.setMsgType(MessageUtil.RESP_MESSAGE_TYPE_TEXT);
 			textMessage.setFuncFlag(0);
+			
+			
 			/*
 			 * // 文本消息 if (msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_TEXT)) {
 			 * respContent = "您发送的是文本消息！"; } // 图片消息 else if
@@ -126,6 +129,8 @@ public class ConnectServlet extends HttpServlet {
 			 * (eventType.equals(MessageUtil.EVENT_TYPE_CLICK)) { // TODO
 			 * 自定义菜单权没有开放，暂不处理该类消息 } }
 			 */
+			
+			
 			textMessage.setContent(respContent);
 			respMessage = MessageUtil.textMessageToXml(textMessage);
 		} catch (Exception e) {

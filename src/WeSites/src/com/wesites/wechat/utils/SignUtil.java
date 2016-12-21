@@ -1,16 +1,21 @@
 package com.wesites.wechat.utils;
 
 import java.security.MessageDigest;
-
 import java.security.NoSuchAlgorithmException;
-
 import java.util.Arrays;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.struts2.ServletActionContext;
+
+import com.wesites.core.pojo.Wechat;
 
 public class SignUtil {
 
 // 与接口配置信息中的Token要一致
-
-private static String token = "cdongli2016";
+	static HttpServletRequest request = ServletActionContext.getRequest();
+	static Wechat wechat = (Wechat) request.getSession().getAttribute("wechat");
+	private static String token = wechat.getToken();
 
 
 

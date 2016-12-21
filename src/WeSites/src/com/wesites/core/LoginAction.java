@@ -78,7 +78,7 @@ public class LoginAction extends ActionSupport {
 			request.getSession().setAttribute("users", user2);
 
 			WechatService wechatService = new WechatServiceImpl();
-			Wechat wechat = wechatService.queryWechatByID(1);
+			Wechat wechat = wechatService.findWechatByUser(user);
 			request.getSession().setAttribute("wechat", wechat);
 			return "success";
 		} else

@@ -3,6 +3,7 @@ package com.wesites.core.dao;
 import java.util.List;
 
 import com.wesites.BaseDAO;
+import com.wesites.core.pojo.User;
 import com.wesites.core.pojo.Wechat;
 
 public interface WechatDAO extends BaseDAO<Wechat> {
@@ -16,4 +17,6 @@ public interface WechatDAO extends BaseDAO<Wechat> {
 	public Wechat findWechatByName(String name);
 
 	public List<Wechat> queryAllWechat();
+
+	Wechat findWechatByUser(User user);
 }

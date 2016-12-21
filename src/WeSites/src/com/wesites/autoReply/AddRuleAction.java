@@ -66,7 +66,6 @@ public class AddRuleAction extends ActionSupport {
 			autoreply.setReplycontent(replycontent);
 			autoreply.setWechatid(wechat.getWechatid());
 			dao.save(autoreply);
-
 			return "success";
 
 		} catch (Exception e) {

@@ -9,7 +9,9 @@ public class User {
 	private String password;
 	private String email;
 	private Set<Role> roles = new HashSet<Role>(0);
+	private Set<Wechat> wechat = new HashSet<Wechat>(0);
 
+	
 	
 	public Integer getId() {
 		return id;
@@ -41,6 +43,12 @@ public class User {
 	}
 	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
+	}
+	public Set<Wechat> getWechat() {
+		return wechat;
+	}
+	public void setWechat(Set<Wechat> wechat) {
+		this.wechat = wechat;
 	}
 	
 

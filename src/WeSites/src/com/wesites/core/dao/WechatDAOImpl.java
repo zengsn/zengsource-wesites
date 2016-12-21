@@ -9,6 +9,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import com.wesites.BaseDAOImpl;
+import com.wesites.core.pojo.User;
 import com.wesites.core.pojo.Wechat;
 import com.wesites.util.HibernateUtil;
 
@@ -106,5 +107,18 @@ public class WechatDAOImpl extends BaseDAOImpl<Wechat>implements WechatDAO {
 		}
 		return wechats;
 	}
-
+	
+	@Override
+	public Wechat findWechatByUser(User user) {
+		// TODO Auto-generated method stub
+		init();
+		Integer id = user.getId();
+		String hql = "from Wechat as u where u.userid=?";
+		Query query = session.createQuery(hql);
+		query.setInteger(0, id);
+		@SuppressWarnings("rawtypes")
+		ArrayList list = (ArrayList) query.list(); // 返回的是一个集合
+		tx.commit();
+		return (Wechat) list.get(0);
+	}
 }

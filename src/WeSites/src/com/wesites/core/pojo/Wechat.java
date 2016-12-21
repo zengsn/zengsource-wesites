@@ -15,6 +15,8 @@ public class Wechat {
 	private String encodingaeskey;
 	private Set<AutoReply> autoreply = new HashSet<AutoReply>(0);
 	private Set<Menu> menu = new HashSet<Menu>(0);
+	private Integer userid;
+	private User user;
 	public Integer getWechatid() {
 		return wechatid;
 	}
@@ -62,6 +64,18 @@ public class Wechat {
 	}
 	public void setMenu(Set<Menu> menu) {
 		this.menu = menu;
+	}
+	public Integer getUserid() {
+		return userid;
+	}
+	public void setUserid(Integer userid) {
+		this.userid = userid;
+	}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	

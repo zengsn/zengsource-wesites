@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.username">wesites</property>
+		<property name="hibernate.connection.password">we2016sites</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/wesites</property>
+		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="hibernate.show_sql">true</property>
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		<property name="current_session_context_class">thread</property>
+		<!-- Core -->
+		<mapping resource="com/wesites/core/pojo/User.hbm.xml" />
+		<mapping resource="com/wesites/core/pojo/Role.hbm.xml" />
+		<mapping resource="com/wesites/core/pojo/Wechat.hbm.xml" />
+		<!-- Auto Reply -->
+		<mapping resource="com/wesites/autoReply/pojo/AutoReply.hbm.xml" />
+		<!-- Menu -->
+		<mapping resource="com/wesites/menu/pojo/Menu.hbm.xml" />
+		<!-- TODO 增加更多功能，至少要有10个表 -->
+		
+	</session-factory>
+</hibernate-configuration>

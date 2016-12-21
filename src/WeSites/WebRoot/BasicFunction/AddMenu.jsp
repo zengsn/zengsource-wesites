@@ -30,7 +30,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<fieldset style="height:100%;" >
 				<legend>添加菜单</legend>
 				<div >
-                    <form action="">
+                    <form action="AddMenu.action">
                         <div>
                             <div>
                             <label>*菜单名字：

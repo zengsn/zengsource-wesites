@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.wesites.core.dao.WechatDAO;
 import com.wesites.core.dao.WechatDAOImpl;
+import com.wesites.core.pojo.User;
 import com.wesites.core.pojo.Wechat;
 import com.wesites.util.PageBean;
 
@@ -40,6 +41,13 @@ public class WechatServiceImpl implements WechatService {
 	public Wechat findWechatByName(String name) {
 		// TODO Auto-generated method stub
 		Wechat wechat = this.dao.findWechatByName(name);
+		return wechat;
+	}
+
+	@Override
+	public Wechat findWechatByUser(User user) {
+		// TODO Auto-generated method stub
+		Wechat wechat = this.dao.findWechatByUser(user);
 		return wechat;
 	}
 
