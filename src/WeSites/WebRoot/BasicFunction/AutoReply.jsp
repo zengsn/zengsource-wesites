@@ -1,20 +1,12 @@
-<%@ page contentType="text/html; charset=GBK" language="java" %>
+<%@ page contentType="text/html; charset=utf-8" language="java" %>
 <%@ taglib prefix="s" uri="/struts-tags" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-
-<link rel="stylesheet" rev="stylesheet" href="css/style.css " type="text/css" media="all" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-<script type="text/javascript" src="../js/typem.js"></script>
-<script type="text/javascript" src="../js/js.js"></script>
 <script type = "text/javascript" src = "../ckeditor/ckeditor.js"></script>
-<style type="text/css">
-<!--
-.atten {font-size:12px;font-weight:normal;color:#F00;}
--->
-</style>
+
 </head>
 <body class="ContentBody">
 
@@ -22,22 +14,22 @@
 		<TR>
 			<TD width="100%">
 				<fieldset style="height:100%;" >
-				<legend>ÃÌº”◊‘∂Øªÿ∏¥</legend>
+				<legend>Ê∑ªÂä†Ëá™Âä®ÂõûÂ§ç</legend>
 				<div >
                     <form action="AddRule.action">
                         <div>
                             
                             <div>
-                            <label>*πÊ‘Ú√˚£∫
-                                <s:textfield name="rulename" label="rulename" type="text"  placeholder="πÊ‘Ú√˚"/>
+                            <label>*ËßÑÂàôÂêçÔºö
+                                <s:textfield name="rulename" label="rulename" type="text"  placeholder="ËßÑÂàôÂêç"/>
                             </label>
                             </div>
                         </div>
                         
                         <div >
                             <div>
-                            	<label>*πÿº¸¥ £∫
-                                <s:textfield name="keyword" label="keyword" placeholder="πÿº¸¥ "/>                           
+                            	<label>*ÂÖ≥ÈîÆËØçÔºö
+                                <s:textfield name="keyword" label="keyword" placeholder="ÂÖ≥ÈîÆËØç"/>                           
                             	</label>
                             </div>
                         	
@@ -45,20 +37,20 @@
                         
                         <div>              
                             <div >
-                                *πÿº¸¥ ¿‡–Õ£∫<br/>
-                                <s:radio list="#{'1':'ÕÍ»´∆•≈‰','2':'ƒ£∫˝∆•≈‰'}" name="keytype" value="1"/>
+                                *ÂÖ≥ÈîÆËØçÁ±ªÂûãÔºö<br/>
+                                <s:radio list="#{'1':'ÂÆåÂÖ®ÂåπÈÖç','2':'Ê®°Á≥äÂåπÈÖç'}" name="keytype" value="1"/>
 								<br/>
                             </div>
                         </div>
                         <div >
-                            <label>*◊‘∂Øªÿ∏¥ƒ⁄»›£∫</label>
+                            <label>*Ëá™Âä®ÂõûÂ§çÂÜÖÂÆπÔºö</label>
                             <div>
-                                <s:textarea   name="replycontent" rows="10" label="replycontent" placeholder="◊‘∂Øªÿ∏¥ƒ⁄»›"/> 
+                                <s:textarea   name="replycontent" rows="10" label="replycontent" placeholder="Ëá™Âä®ÂõûÂ§çÂÜÖÂÆπ"/> 
                             </div>
                         </div>
                         <div >
-                    	<s:submit  value="±£¥Ê " class="btn" ></s:submit>
-                    	<input name="reset" type="reset" value="÷ÿ÷√"/>
+                    	<s:submit  value="‰øùÂ≠ò " class="btn" ></s:submit>
+                    	<input name="reset" type="reset" value="ÈáçÁΩÆ"/>
                 		</div>
                     </form>
                 </div>

@@ -12,8 +12,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="../styles/Common.css" rel="stylesheet" />
-    <link href="../styles/Index2.css" rel="stylesheet" />
+
     <title></title>
     <script type="text/javascript">
     
@@ -36,8 +35,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </script>
 </head>
 <body>
-    <div class="container-fluid">
-        <div class="row-fluid">
+    <div >
+        <div >
    		<fieldset style="height:100%;">
 		<legend>企业管理员</legend>
 		
@@ -51,6 +50,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             					<th>等级</th>
            						<th>创建时间</th>
             					<th>手机号码</th>
+            					<th>操作</th>
         					</tr>
     
     
@@ -61,6 +61,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             					<th><s:property value="#role.rolerate"/></th>
             					<th><s:property value="#role.createtime"/></th>   
             					<th><s:property value="#role.phonenumber"/></th>       
+            					<th><a class="btn btn-danger">删除</a></th>
         					</tr>
     
     					</s:iterator>

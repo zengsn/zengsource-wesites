@@ -10,117 +10,93 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <base href="<%=basePath%>">
     
     <title>企业微信管理系统</title>
-<style type="text/css">
-<!--
-body {
-	margin-left: 0px;
-	margin-top: 0px;
-	margin-right: 0px;
-	margin-bottom: 0px;
-	background-image: url(images/left.gif);
-}
--->
-</style>
 <link href="css/css.css" rel="stylesheet" type="text/css" />
+<link href="dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+      body {
+        padding-top: 70px;
+      }
+</style>
 </head>
-<SCRIPT language=JavaScript>
-function tupian(idt){
-    var nametu="xiaotu"+idt;
-    var tp = document.getElementById(nametu);
-    tp.src="images/ico05.gif";//图片ico04为白色的正方形
-	
-	for(var i=1;i<30;i++)
-	{
-	  
-	  var nametu2="xiaotu"+i;
-	  if(i!=idt*1)
-	  {
-	    var tp2=document.getElementById('xiaotu'+i);
-		if(tp2!=undefined)
-	    {tp2.src="images/ico06.gif";}//图片ico06为蓝色的正方形
-	  }
-	}
-}
-
-function list(idstr){
-	var name1="subtree"+idstr;
-	var name2="img"+idstr;
-	var objectobj=document.all(name1);
-	var imgobj=document.all(name2);
-	
-	
-	//alert(imgobj);
-	
-	if(objectobj.style.display=="none"){
-		for(i=1;i<10;i++){
-			var name3="img"+i;
-			var name="subtree"+i;
-			var o=document.all(name);
-			if(o!=undefined){
-				o.style.display="none";
-				var image=document.all(name3);
-				//alert(image);
-				image.src="images/ico04.gif";
-			}
-		}
-		objectobj.style.display="";
-		imgobj.src="images/ico03.gif";
-	}
-	else{
-		objectobj.style.display="none";
-		imgobj.src="images/ico04.gif";
-	}
-}
-
-</SCRIPT>
 
 <body>
-<table width="198" border="0" cellpadding="0" cellspacing="0" class="left-table01">
-  <tr>
-    <TD>
-		<table width="100%" border="0" cellpadding="0" cellspacing="0">
-		  <tr>
-			<td width="207" height="55" background="images/nav01.gif">
-				<table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
-				  <tr>
-					<!-- <td width="25%" rowspan="2"><img src="images/ico02.gif" width="35" height="35" /></td> -->
-					<td width="75%" height="22" class="left-font01">您好，<span class="left-font02">${sessionScope.users.getUsername()}</span></td>
-				  </tr>
-				  <tr>
-					<td height="22" class="left-font01">
-						[&nbsp;<a href="login.jsp" target="_top" class="left-font01">退出</a>&nbsp;]</td>
-				  </tr>
-				</table>
-			</td>
-		  </tr>
-		</table>
-		
+<!--页头导航栏-->
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <!-- 响应式显示 -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Logo标题</a>
+        </div>
+        <!-- 正常显示 -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">欢迎您，<span>${sessionScope.users.getUsername()}</span> <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">我的资料</a></li>
+                <li><a href="#">修改密码</a></li>
+                <li class="divider"></li>
+                <li><a href="login.jsp">安全退出</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Help</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
 
+    <!-- 页面主要内容 -->
+    <!-- 左侧导航栏 -->
+    <div class="container-fluid" id="main">
+      <div class="row">
+        
+        <div class="col-md-2">
+          <ul class="nav nav-tabs nav-stacked nav-pills sidebar" role="tablist">
+            <li role="presentation" class="active"><a href="#gzh-manage" role="tab" data-toggle="tab">公众号管理</a></li>
+            <li role="presentation"><a href="#user-manage" role="tab" data-toggle="tab">角色管理</a></li>
+            <li role="presentation"><a href="#basic-function" role="tab" data-toggle="tab">基础功能</a></li>
+            <li role="presentation"><a href="#enterp-function" role="tab" data-toggle="tab">企业功能</a></li>
+          </ul>
+        </div>
+        <!-- 右侧主要内容 -->
+        <div class="col-md-10">
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="gzh-manage">
+              <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="showAccount.action"></iframe><!-- 需要在action修改路径 --> !>
+              </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="user-manage">
+              <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="main/user-manage.html"></iframe>
+              </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="basic-function">
+              <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="main/basic-function.html"></iframe>
+              </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="enterp-function">
+              <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="main/enterp-function.html"></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> 
 
-		<TABLE width="100%" border="0" cellpadding="0" cellspacing="0" class="left-table03">
-          <tr>
-            <td height="29">
-				<table width="85%" border="0" align="center" cellpadding="0" cellspacing="0">
-					<tr>
-						<td width="8%"><img name="img8" id="img8" src="../images/ico04.gif" width="8" height="11" /></td>
-						<td width="92%">
-								<a href="javascript:" target="mainFrame" class="left-font03" onClick="list('8');" >公众号管理</a></td>
-					</tr>
-				</table>
-			</td>
-          </tr>		  
-        </TABLE>
-		<table id="subtree8" style="DISPLAY: none" width="80%" border="0" align="center" cellpadding="0" 
-				cellspacing="0" class="left-table02">
-				<tr>
-				  <td width="9%" height="20" ><img id="xiaotu1" src="../images/ico06.gif" width="8" height="12" /></td>
-				  <td width="91%"><a href="showAccount.action" target="mainFrame" class="left-font03" onClick="tupian('1');">已绑定的公众号</a></td>
-				</tr>
-				<tr>
-				  <td width="9%" height="21" ><img id="xiaotu2" src="../images/ico06.gif" width="8" height="12" /></td>
-				  <td width="91%"><a href="user.do?action=listuser" target="mainFrame" class="left-font03" onClick="tupian('2');">已绑定的公众号</a></td>
-				</tr>
-      </table>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="jquery-3.1.1.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="dist/js/bootstrap.min.js"></script>
+
 
 		<TABLE width="100%" border="0" cellpadding="0" cellspacing="0" class="left-table03">
           <tr>

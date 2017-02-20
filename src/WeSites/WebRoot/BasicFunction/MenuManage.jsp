@@ -7,38 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
 
 <style type="text/css">
-<!--
-body {
-	margin-left: 0px;
-	margin-top: 0px;
-	margin-right: 0px;
-	margin-bottom: 0px;
-}
-.tabfont01 {	
-	font-family: "宋体";
-	font-size: 9px;
-	color: #555555;
-	text-decoration: none;
-	text-align: center;
-}
-.font051 {font-family: "宋体";
-	font-size: 12px;
-	color: #333333;
-	text-decoration: none;
-	line-height: 20px;
-}
-.font201 {font-family: "宋体";
-	font-size: 12px;
-	color: #FF0000;
-	text-decoration: none;
-}
-.button {
-	font-family: "宋体";
-	font-size: 14px;
-	height: 37px;
-}
-html { overflow-x: auto; overflow-y: auto; border:0;} 
--->
+
 </style>
 <script type="text/javascript">
     
@@ -94,7 +63,7 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
 					<td height="22" align="center" ><s:property value="#menu.type"/></td>
 					<td height="22" align="center" ><s:property value="#menu.action"/></td>
 					<td height="22" align="center" ><s:property value="#menu.respondaction"/></td>
-					<td height="22" align="center" ><a href="DeleteMenu.action?menuid=<s:property value="#menu.menuid"/>">删除</a></td>
+					<td height="22" align="center" ><a class="btn btn-danger" href="DeleteMenu.action?menuid=<s:property value="#menu.menuid"/>">删除</a></td>
 				  </tr>
 				  </s:iterator>
 

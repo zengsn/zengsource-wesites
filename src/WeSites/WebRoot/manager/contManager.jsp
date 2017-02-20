@@ -13,8 +13,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <title></title>
-    <link href="../styles/Common.css" rel="stylesheet" />
-    <link href="../styles/Index2.css" rel="stylesheet" />
     
     <script type="text/javascript">
     
@@ -50,6 +48,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             					<th>等级</th>
            						<th>创建时间</th>
             					<th>手机号码</th>
+            					<th>操作</th>
         					</tr>
     
     
@@ -59,7 +58,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             					<th><s:property value="#role.rolename"/></th>
             					<th><s:property value="#role.rolerate"/></th>
             					<th><s:property value="#role.createtime"/></th>   
-            					<th><s:property value="#role.phonenumber"/></th>       
+            					<th><s:property value="#role.phonenumber"/></th>    
+            					<th><a class="btn btn-danger">删除</a></th>   
         					</tr>
     
     					</s:iterator>
@@ -141,6 +141,5 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <script src="../js/jquery-1.9.1.min.js"></script>
     <script src="../bootstrap/js/bootstrap.min.js"></script>
     <script src="../layer/layer/layer.js"></script>
-    <script src="../js/Index2.js"></script>
 </body>
 </html>

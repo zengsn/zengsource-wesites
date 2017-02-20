@@ -52,7 +52,7 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
 					<td height="22" align="center" ><s:property value="#wechat.appid"/></td>
 					<td height="22" align="center" ><s:property value="#wechat.token"/></td>
 					<td height="22" align="center" ><s:property value="#wechat.appsecret"/></td>
-					<td height="22" align="center" >É¾³ý</td>
+					<td height="22" align="center" ><a class="btn btn-danger">É¾³ý</a></td>
 				  </tr>
 				  </s:iterator>
 				  

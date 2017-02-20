@@ -1,48 +1,20 @@
-<%@ page contentType="text/html; charset=GBK" language="java" %>
+<%@ page contentType="text/html; charset=utf-8" language="java" %>
 <%@ taglib prefix="s" uri="/struts-tags" %> 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="../dist/css/bootstrap.min.css" rel="stylesheet"/>
 <style type="text/css">
-<!--
-body {
-	margin-left: 0px;
-	margin-top: 0px;
-	margin-right: 0px;
-	margin-bottom: 0px;
-}
-.tabfont01 {	
-	font-family: "ËÎÌå";
-	font-size: 9px;
-	color: #555555;
-	text-decoration: none;
-	text-align: center;
-}
-.font051 {font-family: "ËÎÌå";
-	font-size: 12px;
-	color: #333333;
-	text-decoration: none;
-	line-height: 20px;
-}
-.font201 {font-family: "ËÎÌå";
-	font-size: 12px;
-	color: #FF0000;
-	text-decoration: none;
-}
-.button {
-	font-family: "ËÎÌå";
-	font-size: 14px;
-	height: 37px;
-}
-html { overflow-x: auto; overflow-y: auto; border:0;} 
--->
 </style>
 
 
 <script src="../layer/layer/layer.js"></script>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="../jquery-3.1.1.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="../dist/js/bootstrap.min.js"></script>
 <script type="text/javascript">
     
         function validate()
@@ -51,7 +23,7 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
                 
             if(page > <s:property value="#session.pageBean.totalPage"/>)
             {
-                alert("ÄãÊäÈëµÄÒ³Êı´óÓÚ×î´óÒ³Êı£¬Ò³Ãæ½«Ìø×ªµ½Ê×Ò³£¡");
+                alert("ä½ è¾“å…¥çš„é¡µæ•°å¤§äºæœ€å¤§é¡µæ•°ï¼Œé¡µé¢å°†è·³è½¬åˆ°é¦–é¡µï¼");
                 
                 window.document.location.href = "AutoReply.action";
                 
@@ -66,29 +38,29 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
 </head>
 
 <body>
-<div align = "left "><a class="btn btn-success" href = "AutoReply.jsp">Ìí¼Ó</a></div>
+<div align = "left "><a class="btn btn-success" href = "AutoReply.jsp">æ·»åŠ </a></div>
 <table width="100%" border="0" cellspacing="0" cellpadding="0" align = "center">
   <tr>
     <td>
    		<fieldset style="height:100%;"align = "center">
-		<legend>¹Ø¼ü´Ê»Ø¸´</legend>
+		<legend>å…³é”®è¯å›å¤</legend>
     <table  style="DISPLAY: " width="100%" border="0" cellspacing="0" cellpadding="0">
     	
         <tr>
           <td><table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
           	 <tr>
-               <td height="20"><span class="newfont07"></span></td>
+               <td height="20"><span></span></td>
           	 </tr>
               <tr>
-                <td height="40" class="font42">
+                <td height="40" >
 				<table class="table table-condensed table-bordered table-hover tab">
 
                   <tr bgcolor="#EEEEEE">
-				         <td height="22" align="center" >¹æÔòÃû</td>
-						<td height="22" align="center" >¹Ø¼ü´Ê</td>
-						<td height="22" align="center" >Æ¥ÅäÀàĞÍ</td>
-						<td height="22" align="center" >Ê±¼ä</td>
-						<td height="22" align="center" >²Ù×÷</td>
+				         <td height="22" align="center" >è§„åˆ™å</td>
+						<td height="22" align="center" >å…³é”®è¯</td>
+						<td height="22" align="center" >åŒ¹é…ç±»å‹</td>
+						<td height="22" align="center" >æ—¶é—´</td>
+						<td height="22" align="center" >æ“ä½œ</td>
                   </tr>
 
 				  <s:iterator value="#session.pageBean.list" id="autoreply">
@@ -97,7 +69,7 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
 					<td height="22" align="center" ><s:property value="#autoreply.keyword"/></td>
 					<td height="22" align="center" ><s:property value="#autoreply.keytype"/></td>
 					<td height="22" align="center" ><s:property value="#autoreply.createtime"/></td>
-					<td height="22" align="center" ><a href="DeleteRule.action?ruleid=<s:property value="#autoreply.ruleid"/>">É¾³ı</a></td>
+					<td height="22" align="center" ><a class="btn btn-danger" href="DeleteRule.action?ruleid=<s:property value="#autoreply.ruleid"/>">åˆ é™¤</a></td>
 				  </tr>
 				  </s:iterator>
 
@@ -105,27 +77,27 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
             <div id="page" class="tr">
                     <center>
     
-        				<font size="5">¹²<font color="red">${sessionScope.pageBean.getTotalPage()}</font>Ò³ </font>&nbsp;&nbsp;
-        				<font size="5">¹²<font color="red">${sessionScope.pageBean.getAllRow()}</font>Ìõ¼ÇÂ¼</font><br/><br/>
-        				<br/><font size="5">µÚ<font color="red">${sessionScope.pageBean.getCurrentPage()}</font>Ò³</font><br/><br/>
+        				<font size="5">å…±<font color="red">${sessionScope.pageBean.getTotalPage()}</font>é¡µ </font>&nbsp;&nbsp;
+        				<font size="5">å…±<font color="red">${sessionScope.pageBean.getAllRow()}</font>æ¡è®°å½•</font><br/><br/>
+        				<br/><font size="5">ç¬¬<font color="red">${sessionScope.pageBean.getCurrentPage()}</font>é¡µ</font><br/><br/>
        					<s:if test="#session.pageBean.currentPage == 1">
-            				Ê×Ò³&nbsp;&nbsp;&nbsp;ÉÏÒ»Ò³
+            				é¦–é¡µ&nbsp;&nbsp;&nbsp;ä¸Šä¸€é¡µ
         				</s:if>
         
         				<s:else>
-            				<a href="AutoReply.action">Ê×Ò³</a>
+            				<a href="AutoReply.action">é¦–é¡µ</a>
             				&nbsp;&nbsp;&nbsp;
-            				<a href="AutoReply.action?page=<s:property value="#session.pageBean.currentPage - 1"/>">ÉÏÒ»Ò³</a>
+            				<a href="AutoReply.action?page=<s:property value="#session.pageBean.currentPage - 1"/>">ä¸Šä¸€é¡µ</a>
         				</s:else>
         
         				<s:if test="#session.pageBean.currentPage != #session.pageBean.totalPage">
-            				<a href="AutoReply.action?page=<s:property value="#session.pageBean.currentPage + 1"/>">ÏÂÒ»Ò³</a>
+            				<a href="AutoReply.action?page=<s:property value="#session.pageBean.currentPage + 1"/>">ä¸‹ä¸€é¡µ</a>
             				&nbsp;&nbsp;&nbsp;
-            				<a href="AutoReply.action?page=<s:property value="#session.pageBean.totalPage"/>">Î²Ò³</a>
+            				<a href="AutoReply.action?page=<s:property value="#session.pageBean.totalPage"/>">å°¾é¡µ</a>
         				</s:if>
         
         				<s:else>
-            				ÏÂÒ»Ò³&nbsp;&nbsp;&nbsp;Î²Ò³
+            				ä¸‹ä¸€é¡µ&nbsp;&nbsp;&nbsp;å°¾é¡µ
         				</s:else>
     
     				</center><br/>
