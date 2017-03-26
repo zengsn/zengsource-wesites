@@ -1,0 +1,13 @@
+eclipse.preferences.version=1
+encoding//src/com/j2ee/action/AddMenuAction.java=UTF-8
+encoding//src/com/j2ee/action/DeleteMenuAction.java=UTF-8
+encoding//src/com/j2ee/service/AutoReplyService.java=UTF-8
+encoding//src/com/j2ee/service/MenuService.java=UTF-8
+encoding//src/com/j2ee/service/RoleService.java=UTF-8
+encoding//src/com/j2ee/service/WechatService.java=UTF-8
+encoding//src/com/j2ee/servlet/DrawImage.java=UTF-8
+encoding//src/com/j2ee/util/PageBean.java=UTF-8
+encoding//src/com/wechat/menu/Button.java=UTF-8
+encoding//src/com/wechat/service/CoreService.java=UTF-8
+encoding//src/com/wechat/servlet/CoreServlet.java=UTF-8
+encoding//src/com/wechat/util/MessageUtil.java=UTF-8

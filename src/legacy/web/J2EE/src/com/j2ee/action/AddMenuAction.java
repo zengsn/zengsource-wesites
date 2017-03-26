@@ -64,9 +64,9 @@ public class AddMenuAction extends ActionSupport{
 			String menuXML = JSONObject.fromObject(WeixinUtil.initMenu(menu)).toString();
 			int result = WeixinUtil.createMenu(token.getToken(),menuXML);
 			if(result == 0)
-				System.out.println("成功");
+				System.out.println("鎴愬姛");
 			else
-				System.out.println("errorcode："+result);
+				System.out.println("errorcode锛�+result");
 			return "success";
 		} catch (Exception e) {
 			// TODO: handle exception

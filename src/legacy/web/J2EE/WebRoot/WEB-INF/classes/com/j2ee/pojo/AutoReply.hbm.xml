@@ -3,7 +3,7 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name = "com.j2ee.pojo.AutoReply" table = "autoreply" catalog = "j2eeproject">
+	<class name = "com.j2ee.pojo.AutoReply" table = "autoreply" catalog = "wesite">
 		<id name = "ruleid" type = "java.lang.Integer">
 			<column name="RULEID"></column>
 			<generator class="identity"></generator>

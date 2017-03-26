@@ -131,7 +131,7 @@ public class UserDAOImpl implements UserDAO {
 		Query query = session.createQuery(hql);
 		query.setString(0, name);
 		@SuppressWarnings("rawtypes")
-		ArrayList list = (ArrayList) query.list(); // 返回的是一个集合
+		ArrayList list = (ArrayList) query.list(); // 杩斿洖鐨勬槸涓�釜闆嗗悎
 		tx.commit();
 		return (User) list.get(0);
 	}

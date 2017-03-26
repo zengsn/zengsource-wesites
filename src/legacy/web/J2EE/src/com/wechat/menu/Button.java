@@ -1,11 +1,11 @@
 package com.wechat.menu;
 
 public class Button {
-	//�˵�����
+	//锟剿碉拷锟斤拷锟斤拷
 	private String type;
-	//�˵����
+	//锟剿碉拷锟斤拷锟�	
 	private String name;
-	//�����˵�
+	//锟斤拷锟斤拷锟剿碉拷
 	private Button[] sub_button;
 	public String getType() {
 		return type;

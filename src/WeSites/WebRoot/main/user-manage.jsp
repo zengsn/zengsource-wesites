@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -7,7 +7,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
-    <base href="<%=basePath%>">
     
     <title>My JSP 'user-manage.jsp' starting page</title>
     
@@ -19,10 +18,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
+	<link href="../dist/css/bootstrap.min.css" rel="stylesheet">
 	<style>
       body {
         margin-top: 60px;
-        font-family:"Microsoft Yahei",微软雅黑,"Helvetica Neue",Arial,sans-serif;
+        font-family:"Microsoft Yahei",微软雅黑,"Helvetica Neue",Arial,sans-serif;
         color: black;
       }
     </style>
@@ -30,8 +30,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    <a class="btn btn-success btn-sm"  href = "compManager.action?rate=1">企业管理员</a>
+  
+    <a class="btn btn-success btn-sm"  href="compManager.action?rate=1">企业管理员</a>
     <br><br>
-    <a class="btn btn-success btn-sm"  href = "contManager.action?rate=2">内容管理员</a>
+    <a class="btn btn-success btn-sm"  href="contManager.action?rate=2">内容管理员</a>
   </body>
 </html>

@@ -26,24 +26,23 @@ private static final long serialVersionUID = 4440739483644821986L;
 
 /**
 
-* 确认请求来自微信服务器
-
+* 纭璇锋眰鏉ヨ嚜寰俊鏈嶅姟鍣�
 */
 
 public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-	 // 微信加密签名，signature结合了开发者填写的token参数和请求中的timestamp参数、nonce参数。
-    String signature = request.getParameter("signature");
-    // 时间戳
-    String timestamp = request.getParameter("timestamp");
-    // 随机数
-    String nonce = request.getParameter("nonce");
-    // 随机字符串
-    String echostr = request.getParameter("echostr");
+	 // 寰俊鍔犲瘑绛惧悕锛宻ignature缁撳悎浜嗗紑鍙戣�濉啓鐨則oken鍙傛暟鍜岃姹備腑鐨則imestamp鍙傛暟銆乶once鍙傛暟銆�    
+	String signature = request.getParameter("signature");
+    // 鏃堕棿鎴�    
+	String timestamp = request.getParameter("timestamp");
+    // 闅忔満鏁�    
+	String nonce = request.getParameter("nonce");
+    // 闅忔満瀛楃涓�   
+	String echostr = request.getParameter("echostr");
     PrintWriter out;
     try {
         out = response.getWriter();
-        // 通过检验signature对请求进行校验，若校验成功则原样返回echostr，表示接入成功，否则接入失败
+        // 閫氳繃妫�獙signature瀵硅姹傝繘琛屾牎楠岋紝鑻ユ牎楠屾垚鍔熷垯鍘熸牱杩斿洖echostr锛岃〃绀烘帴鍏ユ垚鍔燂紝鍚﹀垯鎺ュ叆澶辫触
         if (SignUtil.checkSignature(signature, timestamp, nonce)) {
             out.print(echostr);
         }
@@ -56,7 +55,7 @@ public void doGet(HttpServletRequest request, HttpServletResponse response) thro
 
 /**
 
-* 处理微信服务器发来的消息
+* 澶勭悊寰俊鏈嶅姟鍣ㄥ彂鏉ョ殑娑堟伅
 
 */
 
@@ -68,9 +67,9 @@ public void doGet(HttpServletRequest request, HttpServletResponse response) thro
         }
         response.setCharacterEncoding("UTF-8");
         // new Login().
-        // 调用核心业务类接收消息、处理消息
+        // 璋冪敤鏍稿績涓氬姟绫绘帴鏀舵秷鎭�澶勭悊娑堟伅
         String respMessage = CoreService.processRequest(request);
-        // 响应消息
+        // 鍝嶅簲娑堟伅
         PrintWriter out;
         try {
             out = response.getWriter();

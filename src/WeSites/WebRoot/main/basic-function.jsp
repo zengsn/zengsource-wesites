@@ -7,7 +7,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
-    <base href="<%=basePath%>">
     
     <title>My JSP 'basic-function.jsp' starting page</title>
     
@@ -30,12 +29,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    <a class="btn btn-success btn-sm"  href = "AutoReply.action">关键词回复</a>
+    <a class="btn btn-success btn-sm"  href="AutoReply.action">关键词回复</a>
     <br><br>
-    <a class="btn btn-success btn-sm"  href = "Menu.action">自定义菜单管理</a>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="../jquery-3.1.1.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="../dist/js/bootstrap.min.js"></script>
+    <a class="btn btn-success btn-sm"  href="Menu.action">自定义菜单管理</a>
+
   </body>
 </html>

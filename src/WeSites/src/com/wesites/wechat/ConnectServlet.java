@@ -16,8 +16,7 @@ import com.wesites.wechat.utils.MessageUtil;
 import com.wesites.wechat.utils.SignUtil;
 
 /**
- * 连接微信的Servlet，包括验证连接和接收消息。
- * 
+ * 杩炴帴寰俊鐨凷ervlet锛屽寘鎷獙璇佽繛鎺ュ拰鎺ユ敹娑堟伅銆� * 
  * @author Dongli Chi, Shaoning Zeng
  * @since 8.0
  */
@@ -27,23 +26,22 @@ public class ConnectServlet extends HttpServlet {
 
 	/**
 	 * 
-	 * 确认请求来自微信服务器
-	 * 
+	 * 纭璇锋眰鏉ヨ嚜寰俊鏈嶅姟鍣�	 * 
 	 */
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		// 微信加密签名，signature结合了开发者填写的token参数和请求中的timestamp参数、nonce参数。
+		// 寰俊鍔犲瘑绛惧悕锛宻ignature缁撳悎浜嗗紑鍙戣�濉啓鐨則oken鍙傛暟鍜岃姹備腑鐨則imestamp鍙傛暟銆乶once鍙傛暟銆�		
 		String signature = request.getParameter("signature");
-		// 时间戳
+		// 鏃堕棿鎴�		
 		String timestamp = request.getParameter("timestamp");
-		// 随机数
+		// 闅忔満鏁�		
 		String nonce = request.getParameter("nonce");
-		// 随机字符串
+		// 闅忔満瀛楃涓�		
 		String echostr = request.getParameter("echostr");
 		PrintWriter out;
 		try {
 			out = response.getWriter();
-			// 通过检验signature对请求进行校验，若校验成功则原样返回echostr，表示接入成功，否则接入失败
+			// 閫氳繃妫�獙signature瀵硅姹傝繘琛屾牎楠岋紝鑻ユ牎楠屾垚鍔熷垯鍘熸牱杩斿洖echostr锛岃〃绀烘帴鍏ユ垚鍔燂紝鍚﹀垯鎺ュ叆澶辫触
 			if (SignUtil.checkSignature(signature, timestamp, nonce)) {
 				out.print(echostr);
 			}
@@ -56,7 +54,7 @@ public class ConnectServlet extends HttpServlet {
 
 	/**
 	 * 
-	 * 处理微信服务器发来的消息
+	 * 澶勭悊寰俊鏈嶅姟鍣ㄥ彂鏉ョ殑娑堟伅
 	 * 
 	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -67,9 +65,9 @@ public class ConnectServlet extends HttpServlet {
 		}
 		response.setCharacterEncoding("UTF-8");
 		// new Login().
-		// 调用核心业务类接收消息、处理消息
+		// 璋冪敤鏍稿績涓氬姟绫绘帴鏀舵秷鎭�澶勭悊娑堟伅
 		String respMessage = doProcess(request);
-		// 响应消息
+		// 鍝嶅簲娑堟伅
 		PrintWriter out;
 		try {
 			out = response.getWriter();
@@ -81,8 +79,7 @@ public class ConnectServlet extends HttpServlet {
 	}
 
 	/**
-	 * 处理微信发来的请求
-	 * 
+	 * 澶勭悊寰俊鍙戞潵鐨勮姹�	 * 
 	 * @param request
 	 * @return
 	 */
@@ -90,17 +87,18 @@ public class ConnectServlet extends HttpServlet {
 		String respMessage = null;
 		
 		try {
-			// 默认返回的文本消息内容
-			String respContent = "请求处理异常，请稍候尝试！";
-			// xml请求解析
+			// 榛樿杩斿洖鐨勬枃鏈秷鎭唴瀹�			
+			String respContent = "111";
+			// xml璇锋眰瑙ｆ瀽
 			Map<String, String> requestMap = MessageUtil.parseXml(request);
-			// 发送方帐号（open_id）
+			// 鍙戦�鏂瑰笎鍙凤紙open_id锛�			
 			String fromUserName = requestMap.get("FromUserName");
-			// 公众帐号
+			// 鍏紬甯愬彿
 			String toUserName = requestMap.get("ToUserName");
-			// 消息类型
-			// String msgType = requestMap.get("MsgType");
-			// 回复文本消息
+			// 娑堟伅绫诲瀷
+			// 
+			String msgType = requestMap.get("MsgType");
+			// 鍥炲鏂囨湰娑堟伅
 			TextMessage textMessage = new TextMessage();
 			textMessage.setToUserName(fromUserName);
 			textMessage.setFromUserName(toUserName);
@@ -110,24 +108,24 @@ public class ConnectServlet extends HttpServlet {
 			
 			
 			/*
-			 * // 文本消息 if (msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_TEXT)) {
-			 * respContent = "您发送的是文本消息！"; } // 图片消息 else if
+			 * // 鏂囨湰娑堟伅 if (msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_TEXT)) {
+			 * respContent = "鎮ㄥ彂閫佺殑鏄枃鏈秷鎭紒"; } // 鍥剧墖娑堟伅 else if
 			 * (msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_IMAGE)) {
-			 * respContent = "您发送的是图片消息！"; } // 地理位置消息 else if
+			 * respContent = "鎮ㄥ彂閫佺殑鏄浘鐗囨秷鎭紒"; } // 鍦扮悊浣嶇疆娑堟伅 else if
 			 * (msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_LOCATION)) {
-			 * respContent = "您发送的是地理位置消息！"; } // 链接消息 else if
+			 * respContent = "鎮ㄥ彂閫佺殑鏄湴鐞嗕綅缃秷鎭紒"; } // 閾炬帴娑堟伅 else if
 			 * (msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_LINK)) { respContent
-			 * = "您发送的是链接消息！"; } // 音频消息 else if
+			 * = "鎮ㄥ彂閫佺殑鏄摼鎺ユ秷鎭紒"; } // 闊抽娑堟伅 else if
 			 * (msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_VOICE)) {
-			 * respContent = "您发送的是音频消息！"; } // 事件推送 else if
-			 * (msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_EVENT)) { // 事件类型
-			 * String eventType = requestMap.get("Event"); // 订阅 if
+			 * respContent = "鎮ㄥ彂閫佺殑鏄煶棰戞秷鎭紒"; } // 浜嬩欢鎺ㄩ� else if
+			 * (msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_EVENT)) { // 浜嬩欢绫诲瀷
+			 * String eventType = requestMap.get("Event"); // 璁㈤槄 if
 			 * (eventType.equals(MessageUtil.EVENT_TYPE_SUBSCRIBE)) {
-			 * respContent = "谢谢您的关注！"; } // 取消订阅 else if
+			 * respContent = "璋㈣阿鎮ㄧ殑鍏虫敞锛�; } // 鍙栨秷璁㈤槄 else if
 			 * (eventType.equals(MessageUtil.EVENT_TYPE_UNSUBSCRIBE)) { // TODO
-			 * 取消订阅后用户再收不到公众号发送的消息，因此不需要回复消息 } // 自定义菜单点击事件 else if
+			 * 鍙栨秷璁㈤槄鍚庣敤鎴峰啀鏀朵笉鍒板叕浼楀彿鍙戦�鐨勬秷鎭紝鍥犳涓嶉渶瑕佸洖澶嶆秷鎭�} // 鑷畾涔夎彍鍗曠偣鍑讳簨浠�else if
 			 * (eventType.equals(MessageUtil.EVENT_TYPE_CLICK)) { // TODO
-			 * 自定义菜单权没有开放，暂不处理该类消息 } }
+			 * 鑷畾涔夎彍鍗曟潈娌℃湁寮�斁锛屾殏涓嶅鐞嗚绫绘秷鎭�} }
 			 */
 			
 			

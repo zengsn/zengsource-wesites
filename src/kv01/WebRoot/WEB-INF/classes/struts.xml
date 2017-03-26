@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<!-- 字符集  -->
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<!--当struts.xml配置文件修改后，系统是否重新加载该文件，开发阶段打开此功能  -->
+	<constant name="struts.configuration.xml.reload" value="true" />
+	<!-- struts2生成的表单标签使用默认的主题，即不附加格式化标签 -->
+	<constant name="struts.ui.theme" value="simple" />
+	<!-- 告诉struts action类去spring容器里面去取 -->
+	<constant name="struts.objectFactory" value="spring" />
+	<!-- 上传临时路径 -->
+	<constant name="struts.multipart.saveDir" value="/upload"/> 
+	<!-- 访问后缀 -->
+	<constant name="struts.action.extension" value="do,action,html,"/> 
+	
+	<!--管理员管理  -->
+    <package name="admin" namespace="/" extends="struts-default">
+        <action name="*" class="adminAction" method="{1}">
+        	<result name="success" type="redirect">main.html</result>
+        	<result name="login" type="redirect">main.html</result>
+        	<result name="url">/WEB-INF/${url}</result>
+        </action>
+    </package>
+    <!--微信接入管理  -->
+    <package name="wx" namespace="/wx" extends="struts-default">
+        <action name="api" class="weiXinAction" method="index">
+        	<result name="success">/WEB-INF/web/common/msg.jsp</result>
+        </action>
+    </package>
+	<!--用户管理  -->
+    <package name="user" namespace="/user" extends="struts-default">
+        <action name="*" class="userAction" method="{1}">
+        	<result name="url">/WEB-INF/${url}</result>
+        </action>
+    </package>
+	<!--自动回复管理  -->
+    <package name="reply" namespace="/reply" extends="struts-default">
+        <action name="*" class="replyAction" method="{1}">
+        	<result name="url">/WEB-INF/${url}</result>
+        </action>
+    </package>
+	<!--图文回复管理  -->
+    <package name="article" namespace="/article" extends="struts-default">
+        <action name="*" class="articleAction" method="{1}">
+        	<result name="url">/WEB-INF/${url}</result>
+        </action>
+    </package>
+</struts>

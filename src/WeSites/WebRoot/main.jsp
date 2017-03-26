@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ include file="UserFilter.jsp"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -37,7 +38,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">欢迎您，<span>${sessionScope.users.getUsername()}</span> <span class="caret"></span></a>
+              <a  class="dropdown-toggle" data-toggle="dropdown">欢迎您，<span>${sessionScope.users.getUsername()}</span> <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
                 <li><a href="#">我的资料</a></li>
                 <li><a href="#">修改密码</a></li>
@@ -69,7 +70,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           <div class="tab-content">
             <div role="tabpanel" class="tab-pane active" id="gzh-manage">
               <div class="embed-responsive embed-responsive-16by9">
-                <iframe class="embed-responsive-item" src="gzh-manage.jsp"></iframe><!-- 需要在action修改路径 --> !>
+                <iframe class="embed-responsive-item" src="main/gzh-manage.jsp"></iframe><!-- 需要在action修改路径 --> !>
               </div>
             </div>
             <div role="tabpanel" class="tab-pane" id="user-manage">
@@ -93,7 +94,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div> 
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="jquery-3.1.1.min.js"></script>
+    <script src="dist/css/jquery-3.1.1.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="dist/js/bootstrap.min.js"></script>
 </body>

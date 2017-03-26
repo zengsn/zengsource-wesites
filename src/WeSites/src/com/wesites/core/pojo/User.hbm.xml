@@ -3,7 +3,7 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name = "com.wesites.core.pojo.User" table = "xt_user" catalog = "j2eeproject">
+	<class name = "com.wesites.core.pojo.User" table = "user" catalog = "wesite">
 		<id name = "id" type = "java.lang.Integer">
 			<column name="ID"></column>
 			<generator class="identity"></generator>
@@ -30,11 +30,11 @@
 		<one-to-many class="com.wesites.core.pojo.Role"/>
 	</set>
 	
-	<set name="wechats" inverse="true" lazy="false" >
+	<set name="wechat" inverse="true" lazy="false" >
 		<key>
 			<column name="WECHATID" length="50"/>
 		</key>
-		<one-to-many class="com.wesites.core.pojo.WECHAT"/>
+		<one-to-many class="com.wesites.core.pojo.Wechat"/>
 	</set>
 	
 	

@@ -37,9 +37,9 @@ public class DeleteMenuAction extends ActionSupport{
 			AccessToken token = WeixinUtil.getAccessToken();
 			int result = WeixinUtil.deleteMenu(token.getToken());
 			if(result == 0)
-				System.out.println("成功");
+				System.out.println("鎴愬姛");
 			else
-				System.out.println("errorcode："+result);
+				System.out.println("errorcode锛�"+result);
 			return "success";
 			
 		} catch (Exception e) {

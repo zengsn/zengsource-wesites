@@ -3,7 +3,7 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name = "com.j2ee.pojo.Menu" table = "menu" catalog = "j2eeproject">
+	<class name = "com.j2ee.pojo.Menu" table = "menu" catalog = "wesite">
 		<id name = "menuid" type = "java.lang.Integer">
 			<column name="MENUID"></column>
 			<generator class="identity"></generator>

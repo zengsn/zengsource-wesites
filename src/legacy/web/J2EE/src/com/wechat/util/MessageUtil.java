@@ -22,77 +22,68 @@ import com.wechat.po.TextMessage;
 
 public class MessageUtil {
     /**
-     * 返回消息类型：文本
-     */
+     * 杩斿洖娑堟伅绫诲瀷锛氭枃鏈�     */
     public static final String RESP_MESSAGE_TYPE_TEXT = "text";
     /**
-     * 返回消息类型：音乐
-     */
+     * 杩斿洖娑堟伅绫诲瀷锛氶煶涔�     */
     public static final String RESP_MESSAGE_TYPE_MUSIC = "music";
     /**
-     * 返回消息类型：图文
-     */
+     * 杩斿洖娑堟伅绫诲瀷锛氬浘鏂�     */
     public static final String RESP_MESSAGE_TYPE_NEWS = "news";
     /**
-     * 请求消息类型：文本
-     */
+     * 璇锋眰娑堟伅绫诲瀷锛氭枃鏈�     */
     public static final String REQ_MESSAGE_TYPE_TEXT = "text";
     /**
-     * 请求消息类型：图片
-     */
+     * 璇锋眰娑堟伅绫诲瀷锛氬浘鐗�     */
     public static final String REQ_MESSAGE_TYPE_IMAGE = "image";
     /**
-     * 请求消息类型：链接
-     */
+     * 璇锋眰娑堟伅绫诲瀷锛氶摼鎺�     */
     public static final String REQ_MESSAGE_TYPE_LINK = "link";
     /**
-     * 请求消息类型：地理位置
-     */
+     * 璇锋眰娑堟伅绫诲瀷锛氬湴鐞嗕綅缃�     */
     public static final String REQ_MESSAGE_TYPE_LOCATION = "location";
     /**
-     * 请求消息类型：音频
-     */
+     * 璇锋眰娑堟伅绫诲瀷锛氶煶棰�     */
     public static final String REQ_MESSAGE_TYPE_VOICE = "voice";
     /**
-     * 请求消息类型：推送
-     */
+     * 璇锋眰娑堟伅绫诲瀷锛氭帹閫�     */
     public static final String REQ_MESSAGE_TYPE_EVENT = "event";
     /**
-     * 事件类型：subscribe(订阅)
+     * 浜嬩欢绫诲瀷锛歴ubscribe(璁㈤槄)
      */
     public static final String EVENT_TYPE_SUBSCRIBE = "subscribe";
     /**
-     * 事件类型：unsubscribe(取消订阅)
+     * 浜嬩欢绫诲瀷锛歶nsubscribe(鍙栨秷璁㈤槄)
      */
     public static final String EVENT_TYPE_UNSUBSCRIBE = "unsubscribe";
     /**
-     * 事件类型：CLICK(自定义菜单点击事件)
+     * 浜嬩欢绫诲瀷锛欳LICK(鑷畾涔夎彍鍗曠偣鍑讳簨浠�
      */
     public static final String EVENT_TYPE_CLICK = "CLICK";
 
     /**
-     * 解析微信xml请求
+     * 瑙ｆ瀽寰俊xml璇锋眰
      * @param request
      * @return
      * @throws Exception
      */
     public static Map<String, String> parseXml(HttpServletRequest request) throws Exception {
-        // 解析结果存储在HashMap 中
-        Map<String, String> map = new HashMap<String, String>();
-        // 从request得到输入流
-        InputStream is = request.getInputStream();
-        // 解析xml
+        // 瑙ｆ瀽缁撴灉瀛樺偍鍦℉ashMap 涓�        
+    	Map<String, String> map = new HashMap<String, String>();
+        // 浠巖equest寰楀埌杈撳叆娴�       
+    	InputStream is = request.getInputStream();
+        // 瑙ｆ瀽xml
         SAXReader sax = new SAXReader();
         Document document = sax.read(is);
-        // 得到xml根元素
+        // 寰楀埌xml鏍瑰厓绱�        
         Element root = document.getRootElement();
-        // 得到子节点
+        // 寰楀埌瀛愯妭鐐�        
         List<Element> elementList = root.elements();
-        // 遍历子节点
+        // 閬嶅巻瀛愯妭鐐�        
         for (Element e : elementList) {
             map.put(e.getName(), e.getText());
         }
-        // 释放资源
+        // 閲婃斁璧勬簮
         if (is != null) {
             is.close();
             is = null;
@@ -101,7 +92,7 @@ public class MessageUtil {
     }
 
     /**
-     * 文本消息转成xml
+     * 鏂囨湰娑堟伅杞垚xml
      * @param textMessage
      * @return
      */
@@ -111,7 +102,7 @@ public class MessageUtil {
     }
 
     /**
-     * 音乐消息转正xml
+     * 闊充箰娑堟伅杞xml
      * @param musicMessage
      * @return
      
@@ -121,9 +112,9 @@ public class MessageUtil {
     }
 	*/
     /**
-     * 图文消息对象转换成xml
+     * 鍥炬枃娑堟伅瀵硅薄杞崲鎴恱ml
      * 
-     * @param newsMessage 图文消息对象
+     * @param newsMessage 鍥炬枃娑堟伅瀵硅薄
      * @return xml
      
     public static String newsMessageToXml(NewsMessage newsMessage) {
@@ -133,12 +124,11 @@ public class MessageUtil {
     }
 */
     /**
-     * /** 扩展xstream，使其支持CDATA块
-     */
+     * /** 鎵╁睍xstream锛屼娇鍏舵敮鎸丆DATA鍧�     */
     private static XStream xstream = new XStream(new XppDriver() {
         public HierarchicalStreamWriter createWriter(Writer out) {
             return new PrettyPrintWriter(out) {
-                // 对所有xml节点的转换都增加CDATA标记
+                // 瀵规墍鏈墄ml鑺傜偣鐨勮浆鎹㈤兘澧炲姞CDATA鏍囪
                 boolean cdata = true;
 
                 @SuppressWarnings("unchecked")

@@ -10,25 +10,24 @@ import com.wechat.util.MessageUtil;
 
 public class CoreService {
 	 /**
-     * 处理微信发来的请求
-     * 
+     * 澶勭悊寰俊鍙戞潵鐨勮姹�     * 
      * @param request
      * @return
      */
     public static String processRequest(HttpServletRequest request) {
         String respMessage = null;
         try {
-            // 默认返回的文本消息内容
-            String respContent = "请求处理异常，请稍候尝试！";
-            // xml请求解析
+            // 榛樿杩斿洖鐨勬枃鏈秷鎭唴瀹�            
+        	String respContent = "111";
+            // xml璇锋眰瑙ｆ瀽
             Map<String, String> requestMap = MessageUtil.parseXml(request);
-            // 发送方帐号（open_id）
+            // 鍙戦�鏂瑰笎鍙凤紙open_id锛�            
             String fromUserName = requestMap.get("FromUserName");
-            // 公众帐号
+            // 鍏紬甯愬彿
             String toUserName = requestMap.get("ToUserName");
-            // 消息类型
+            // 娑堟伅绫诲瀷
             String msgType = requestMap.get("MsgType");
-            // 回复文本消息
+            // 鍥炲鏂囨湰娑堟伅
             TextMessage textMessage = new TextMessage();
             textMessage.setToUserName(fromUserName);
             textMessage.setFromUserName(toUserName);
@@ -36,42 +35,39 @@ public class CoreService {
             textMessage.setMsgType(MessageUtil.RESP_MESSAGE_TYPE_TEXT);
             textMessage.setFuncFlag(0);
             /*
-            // 文本消息
+            // 鏂囨湰娑堟伅
             if (msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_TEXT)) {
-                respContent = "您发送的是文本消息！";
+                respContent = "鎮ㄥ彂閫佺殑鏄枃鏈秷鎭紒";
             }
-            // 图片消息
+            // 鍥剧墖娑堟伅
             else if (msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_IMAGE)) {
-                respContent = "您发送的是图片消息！";
+                respContent = "鎮ㄥ彂閫佺殑鏄浘鐗囨秷鎭紒";
             }
-            // 地理位置消息
+            // 鍦扮悊浣嶇疆娑堟伅
             else if (msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_LOCATION)) {
-                respContent = "您发送的是地理位置消息！";
+                respContent = "鎮ㄥ彂閫佺殑鏄湴鐞嗕綅缃秷鎭紒";
             }
-            // 链接消息
+            // 閾炬帴娑堟伅
             else if (msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_LINK)) {
-                respContent = "您发送的是链接消息！";
+                respContent = "鎮ㄥ彂閫佺殑鏄摼鎺ユ秷鎭紒";
             }
-            // 音频消息
+            // 闊抽娑堟伅
             else if (msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_VOICE)) {
-                respContent = "您发送的是音频消息！";
+                respContent = "鎮ㄥ彂閫佺殑鏄煶棰戞秷鎭紒";
             }
-            // 事件推送
+            // 浜嬩欢鎺ㄩ�
             else if (msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_EVENT)) {
-                // 事件类型
+                // 浜嬩欢绫诲瀷
                 String eventType = requestMap.get("Event");
-                // 订阅
+                // 璁㈤槄
                 if (eventType.equals(MessageUtil.EVENT_TYPE_SUBSCRIBE)) {
-                    respContent = "谢谢您的关注！";
+                    respContent = "璋㈣阿鎮ㄧ殑鍏虫敞锛�;
                 }
-                // 取消订阅
+                // 鍙栨秷璁㈤槄
                 else if (eventType.equals(MessageUtil.EVENT_TYPE_UNSUBSCRIBE)) {
-                    // TODO 取消订阅后用户再收不到公众号发送的消息，因此不需要回复消息
-                }
-                // 自定义菜单点击事件
-                else if (eventType.equals(MessageUtil.EVENT_TYPE_CLICK)) {
-                    // TODO 自定义菜单权没有开放，暂不处理该类消息
-                }
+                    // TODO 鍙栨秷璁㈤槄鍚庣敤鎴峰啀鏀朵笉鍒板叕浼楀彿鍙戦�鐨勬秷鎭紝鍥犳涓嶉渶瑕佸洖澶嶆秷鎭�                }
+                // 鑷畾涔夎彍鍗曠偣鍑讳簨浠�                else if (eventType.equals(MessageUtil.EVENT_TYPE_CLICK)) {
+                    // TODO 鑷畾涔夎彍鍗曟潈娌℃湁寮�斁锛屾殏涓嶅鐞嗚绫绘秷鎭�                }
             }
             */
             textMessage.setContent(respContent);

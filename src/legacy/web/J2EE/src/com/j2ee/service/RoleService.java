@@ -21,13 +21,13 @@ public class RoleService implements IRoleService{
 		HttpServletRequest request = ServletActionContext.getRequest();
 		User user = (User) request.getSession().getAttribute("users");
 		String hql = "select count(*) from Role where rolerate = " + rate+"and userid="+user.getId();
-		int count = dao.getCount(hql); // 总记录数
+		int count = dao.getCount(hql); // 鎬昏褰曟暟
 		System.out.print(count);
-		int totalPage = PageBean.countTotalPage(pageSize, count); // 总页数
-		int offset = PageBean.countOffset(pageSize, page); // 当前页开始记录
-		int length = pageSize; // 每页记录数
+		int totalPage = PageBean.countTotalPage(pageSize, count); // 鎬婚〉鏁�		
+		int offset = PageBean.countOffset(pageSize, page); // 褰撳墠椤靛紑濮嬭褰�		
+		int length = pageSize; // 姣忛〉璁板綍鏁�		
 		int currentPage = PageBean.countCurrentPage(page);
-		List<Role> list = dao.queryForPage("from Role where rolerate=? and userid=?", offset, length,rate); // 该分页的记录
+		List<Role> list = dao.queryForPage("from Role where rolerate=? and userid=?", offset, length,rate); // 璇ュ垎椤电殑璁板綍
 		PageBean<Role> pageBean = new PageBean<Role>();
 		pageBean.setPageSize(pageSize);
 		pageBean.setCurrentPage(currentPage);

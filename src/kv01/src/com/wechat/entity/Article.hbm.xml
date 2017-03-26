@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>  
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping package="com.wechat.entity">
+	<class name="Article" table="wx_article">
+		<id name="id" column="id">
+			<generator class="identity"></generator>
+		</id>
+		<property name="keyword" column="keyword_" length="50"/>
+		<property name="Title" column="title" length="100"/>
+		<property name="Description" column="description" length="100"/>
+		<property name="PicUrl" column="picurl" length="200"/>
+		<property name="Url" column="url" length="200"/>
+	</class>
+</hibernate-mapping>

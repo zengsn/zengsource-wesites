@@ -3,7 +3,7 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name = "com.wesites.autoReply.pojo.AutoReply" table = "autoreply" catalog = "j2eeproject">
+	<class name = "com.wesites.autoReply.pojo.AutoReply" table = "autoreply" catalog = "wesite">
 		<id name = "ruleid" type = "java.lang.Integer">
 			<column name="RULEID"></column>
 			<generator class="identity"></generator>
@@ -36,7 +36,7 @@
 	</property>
 
 	<many-to-one name="wechat" class="com.wesites.core.pojo.Wechat"  fetch="select">
-		<column name="wechatautoreplyfk" length="50" />
+		<column name="FK_wechat_auto" length="50" />
 	</many-to-one>
 	
 	</class>

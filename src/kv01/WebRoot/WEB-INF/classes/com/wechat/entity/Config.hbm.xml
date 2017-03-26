@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>  
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping package="com.wechat.entity">
+	<class name="Config" table="wx_config">
+		<id name="id" column="id">
+			<generator class="identity"></generator>
+		</id>
+		<property name="appId" column="appId" length="100"/>
+		<property name="appSecret" column="appSecret" length="100"/>
+		<property name="token" column="token" length="100"/>
+		<property name="menu" column="menu" length="4000"/>
+		<property name="createDate" column="createDate" type="timestamp" update="false"/>
+		
+
+	</class>
+</hibernate-mapping>

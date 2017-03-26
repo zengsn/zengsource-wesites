@@ -3,7 +3,7 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name="com.wesites.menu.pojo.Menu" table="menu" catalog="j2eeproject">
+	<class name="com.wesites.menu.pojo.Menu" table="menu" catalog="wesite">
 		<id name="menuid" type="java.lang.Integer">
 			<column name="MENUID"></column>
 			<generator class="identity"></generator>
@@ -33,7 +33,7 @@
 
 		<many-to-one name="wechat" class="com.wesites.core.pojo.Wechat"
 			fetch="select">
-			<column name="wechatmenufk" length="50" />
+			<column name="FK_wechat_menu" length="50" />
 		</many-to-one>
 
 	</class>

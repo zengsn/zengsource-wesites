@@ -35,11 +35,8 @@ public class MenuAction extends ActionSupport {
 	public String execute() throws Exception {
 		MenuService menuService = new MenuServiceImpl();
 		PageBean<Menu> pageBean = menuService.queryForPage(5, page);
-		if (!pageBean.getList().isEmpty()) {
 			HttpServletRequest request = ServletActionContext.getRequest();
 			request.getSession().setAttribute("pageBean", pageBean);
 			return "success";
-		} else
-			return "fail";
 	}
 }

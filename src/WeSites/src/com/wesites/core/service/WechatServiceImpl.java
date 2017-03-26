@@ -15,13 +15,13 @@ public class WechatServiceImpl implements WechatService {
 	public PageBean<Wechat> queryForPage(int pageSize, int page) {
 
 		String hql = "select count(*) from Wechat ";
-		int count = dao.getCount(hql); // 总记录数
+		int count = dao.getCount(hql); // 鎬昏褰曟暟
 		System.out.print(count);
-		int totalPage = PageBean.countTotalPage(pageSize, count); // 总页数
-		int offset = PageBean.countOffset(pageSize, page); // 当前页开始记录
-		int length = pageSize; // 每页记录数
+		int totalPage = PageBean.countTotalPage(pageSize, count); // 鎬婚〉鏁�		
+		int offset = PageBean.countOffset(pageSize, page); // 褰撳墠椤靛紑濮嬭褰�		
+		int length = pageSize; // 姣忛〉璁板綍鏁�		
 		int currentPage = PageBean.countCurrentPage(page);
-		List<Wechat> list = dao.queryForPage("from Wechat ", offset, length); // 该分页的记录
+		List<Wechat> list = dao.queryForPage("from Wechat ", offset, length); // 璇ュ垎椤电殑璁板綍
 		PageBean<Wechat> pageBean = new PageBean<Wechat>();
 		pageBean.setPageSize(pageSize);
 		pageBean.setCurrentPage(currentPage);

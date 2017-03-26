@@ -1,2 +1,15 @@
 eclipse.preferences.version=1
 encoding//WebRoot/main/gzh-manage.jsp=UTF-8
+encoding//WebRoot/main/user-manage.jsp=UTF-8
+encoding//src/com/wesites/autoReply/service/AutoReplyServiceImpl.java=UTF-8
+encoding//src/com/wesites/core/DrawImage.java=UTF-8
+encoding//src/com/wesites/core/LoginAction.java=UTF-8
+encoding//src/com/wesites/core/dao/UserDAOImpl.java=UTF-8
+encoding//src/com/wesites/core/service/RoleServiceImpl.java=UTF-8
+encoding//src/com/wesites/core/service/WechatServiceImpl.java=UTF-8
+encoding//src/com/wesites/menu/AddMenuAction.java=UTF-8
+encoding//src/com/wesites/menu/DeleteMenuAction.java=UTF-8
+encoding//src/com/wesites/menu/service/MenuServiceImpl.java=UTF-8
+encoding//src/com/wesites/util/PageBean.java=UTF-8
+encoding//src/com/wesites/wechat/ConnectServlet.java=UTF-8
+encoding//src/com/wesites/wechat/menu/Button.java=UTF-8

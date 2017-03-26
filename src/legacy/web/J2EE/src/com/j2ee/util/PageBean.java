@@ -9,19 +9,18 @@ public class PageBean<T> {
 	
 	     private List<T> list = new ArrayList<T>();
 	      
-	     private int allRow; // 总记录数
-	     private int totalPage; // 总页数
-	     private int currentPage; // 当前页
-	     private int pageSize;// 每页记录数
-	     
+	     private int allRow; // 鎬昏褰曟暟
+	     private int totalPage; // 鎬婚〉鏁�	     
+	     private int currentPage; // 褰撳墠椤�	     
+	     private int pageSize;// 姣忛〉璁板綍鏁�	     
 	     @SuppressWarnings("unused")
-	     private boolean isFirstPage; // 是否为第一页
+	     private boolean isFirstPage; // 鏄惁涓虹涓�〉
 	     @SuppressWarnings("unused")
-	     private boolean isLastPage;// 是否为最后一页
+	     private boolean isLastPage;// 鏄惁涓烘渶鍚庝竴椤�	     
 	     @SuppressWarnings("unused")
-	     private boolean hasPreviousPage; // 是否有前一页
+	     private boolean hasPreviousPage; // 鏄惁鏈夊墠涓�〉
 	     @SuppressWarnings("unused")
-	     private boolean hasNextPage;// 是否有下一页
+	     private boolean hasNextPage;// 鏄惁鏈変笅涓�〉
 	 
 	     
 	 
@@ -66,8 +65,7 @@ public class PageBean<T> {
 	     }
 	 
 	     /**
-	      * 初始化分页信息
-	      */
+	      * 鍒濆鍖栧垎椤典俊鎭�	      */
 	     public void init() {
 	         this.isFirstPage = isFirstPage();
 	         this.isLastPage = isLastPage();
@@ -76,44 +74,38 @@ public class PageBean<T> {
 	     }
 	 
 	     /**
-	      * 以下判断页的信息,只需getter方法(is方法)即可
+	      * 浠ヤ笅鍒ゆ柇椤电殑淇℃伅,鍙渶getter鏂规硶(is鏂规硶)鍗冲彲
 	      * 
 	      * @return
 	      */
 	     public boolean isFirstPage() {
-	         return currentPage == 1; // 如是当前页是第1页
+	         return currentPage == 1; // 濡傛槸褰撳墠椤垫槸绗�椤�	     
 	     }
 	 
 	     public boolean isLastPage() {
-	         return currentPage == totalPage; // 如果当前页是最后一页
+	         return currentPage == totalPage; // 濡傛灉褰撳墠椤垫槸鏈�悗涓�〉
 	     }
 	 
 	     public boolean isHasPreviousPage() {
-	         return currentPage != 1;// 只要当前页不是第1页
-	     }
+	         return currentPage != 1;// 鍙褰撳墠椤典笉鏄1椤�	     
+	         }
 	 
 	     public boolean isHasNextPage() {
-	         return currentPage != totalPage; // 只要当前页不是最后1页
-	     }
+	         return currentPage != totalPage; // 鍙褰撳墠椤典笉鏄渶鍚�椤�	     
+	         }
 	 
 	     /**
-	    * 计算总页数,静态方法,供外部直接通过类名调用
-	     * 
-	    * @param pageSize每页记录数
-	     * @param allRow总记录数
-	     * @return 总页数
-	     */
+	    * 璁＄畻鎬婚〉鏁�闈欐�鏂规硶,渚涘閮ㄧ洿鎺ラ�杩囩被鍚嶈皟鐢�	     * 
+	    * @param pageSize姣忛〉璁板綍鏁�	     * @param allRow鎬昏褰曟暟
+	     * @return 鎬婚〉鏁�	     */
 	    public static int countTotalPage(final int pageSize, final int allRow) {
 	        int totalPage = allRow % pageSize == 0 ? allRow / pageSize : allRow / pageSize + 1;
 	        return totalPage;
 	    }
 	
 	    /**
-	     * 计算当前页开始记录
-	     * 
-	     * @param pageSize每页记录数
-	     * @param currentPage当前第几页
-	     * @return 当前页开始记录号
+	     * 璁＄畻褰撳墠椤靛紑濮嬭褰�	     * 
+	     * @param pageSize姣忛〉璁板綍鏁�	     * @param currentPage褰撳墠绗嚑椤�	     * @return 褰撳墠椤靛紑濮嬭褰曞彿
 	     */
 	    public static int countOffset(final int pageSize, final int currentPage) {
 	        final int offset = pageSize * (currentPage - 1);
@@ -121,11 +113,10 @@ public class PageBean<T> {
 	    }
 	
 	    /**
-	     * 计算当前页,若为0或者请求的URL中没有"?page=",则用1代替
+	     * 璁＄畻褰撳墠椤�鑻ヤ负0鎴栬�璇锋眰鐨刄RL涓病鏈�?page=",鍒欑敤1浠ｆ浛
 	     * 
-	     * @paramPage 传入的参数(可能为空,即0,则返回1)
-	     * @return 当前页
-	     */
+	     * @paramPage 浼犲叆鐨勫弬鏁�鍙兘涓虹┖,鍗�,鍒欒繑鍥�)
+	     * @return 褰撳墠椤�	     */
 	    public static int countCurrentPage(int page) {
 	        final int curPage = (page == 0 ? 1 : page);
 	        return curPage;

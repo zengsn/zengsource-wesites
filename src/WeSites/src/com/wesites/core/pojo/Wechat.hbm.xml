@@ -3,7 +3,7 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name="com.wesites.core.pojo.Wechat" table="wechat" catalog="j2eeproject">
+	<class name="com.wesites.core.pojo.Wechat" table="wechat" catalog="wesite">
 		<id name="wechatid" type="java.lang.Integer">
 			<column name="WECHATID"></column>
 			<generator class="identity"></generator>
@@ -44,7 +44,7 @@
 		</set>
 
 		<many-to-one name="user" class="com.wesites.core.pojo.User"  fetch="select">
-			<column name="userwechatfk" length="50" />
+			<column name="FK_user_wechat" length="50" />
 		</many-to-one>
 
 	</class>

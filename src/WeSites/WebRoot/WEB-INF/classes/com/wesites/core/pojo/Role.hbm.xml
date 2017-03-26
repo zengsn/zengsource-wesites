@@ -3,7 +3,7 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name = "com.wesites.core.pojo.Role" table = "xt_role" catalog = "j2eeproject">
+	<class name = "com.wesites.core.pojo.Role" table = "role" catalog = "wesite">
 		<id name = "roleid" type = "java.lang.Integer">
 			<column name="ROLEID"></column>
 			<generator class="identity"></generator>

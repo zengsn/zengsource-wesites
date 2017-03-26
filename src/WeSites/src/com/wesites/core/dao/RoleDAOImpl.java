@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts2.ServletActionContext;
+import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -42,6 +43,8 @@ public class RoleDAOImpl extends BaseDAOImpl<Role>implements RoleDAO {
 		tx.commit();
 		return q.list();
 	}
+	
+	
 
 	@Override
 	public int getCount(String hql) {

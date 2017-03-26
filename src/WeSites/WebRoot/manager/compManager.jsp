@@ -12,7 +12,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-
+	<script type="text/javascript" src="/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/js/jquery.easyui.min.js"></script>
     <title></title>
     <script type="text/javascript">
     
@@ -61,7 +62,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             					<th><s:property value="#role.rolerate"/></th>
             					<th><s:property value="#role.createtime"/></th>   
             					<th><s:property value="#role.phonenumber"/></th>       
-            					<th><a class="btn btn-danger">删除</a></th>
+            					<th><a class="btn btn-danger" >删除</a></th>
         					</tr>
     
     					</s:iterator>
@@ -109,17 +110,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <h3 id="myModalLabel">添加管理员</h3>
                 </div>
                 <div class="modal-body">
-                    <form class="form-horizontal" action="doManager.action">
+                    <form class="form-horizontal" action="doManager.action?action='add'">
                         <div class="control-group">
                             <label class="control-label" for="roleName">姓名</label>
                             <div class="controls">
                                 <s:textfield name="rolename" label="rolename" type="text"  placeholder="姓名"/>
                             </div>
                         </div>
-                        <div class="control-group">
+                        <div class="control-group" >
                             <label class="control-label" for="roleRate">等级</label>
                             <div class="controls">
-                                <s:textfield name="rolerate" label="rolerate" type="text"  placeholder="等级"/>
+                                <s:textfield name="rolerate" label="rolerate"  placeholder="等级"/>
                             </div>
                         </div>
                         <div class="control-group">
@@ -129,9 +130,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             </div>
                         </div>
                         <div class="modal-footer">
-                   		<button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
-                    	<s:submit  value="保存 " class="btn" ></s:submit>
-                    	<button class="btn btn-primary" id="edt" onclick="edt();">保存</button>
+                        <s:submit  value="保存 "/>
+                   		<button class="btn" data-dismiss="modal" >关闭</button>
+                    	
                 		</div>
                     </form>
                 </div>

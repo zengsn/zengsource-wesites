@@ -51,19 +51,18 @@ public class LoginAction extends ActionSupport {
 		 * PreparedStatement ps= conn.prepareStatement(sql); ps.setString(1,
 		 * UserName); ps.setString(2, Password); ResultSet rs=
 		 * ps.executeQuery(); if(rs.next()) {
-		 * System.out.println("成功登录,用户名:"+UserName+"密码:"+Password); return
+		 * System.out.println("鎴愬姛鐧诲綍,鐢ㄦ埛鍚�"+UserName+"瀵嗙爜:"+Password); return
 		 * "success"; } else return "fail"; } catch (SQLException e) {
 		 * e.printStackTrace(); }catch (Exception e) { e.printStackTrace(); }
-		 * finally { //关闭连接 conn.close(); } return "fail";
+		 * finally { //鍏抽棴杩炴帴 conn.close(); } return "fail";
 		 */
-		// 验证码校验
-
+		// 楠岃瘉鐮佹牎楠�
 		HttpServletRequest request = ServletActionContext.getRequest();
-		String serverCheckcode = (String) request.getSession().getAttribute("checkcode");// 从服务器端的session中取出验证码
-		if (validateCode.equals(serverCheckcode)) {// 将客户端验证码和服务器端验证比较，如果相等，则表示验证通过
-			System.out.println("验证码验证通过！");
+		String serverCheckcode = (String) request.getSession().getAttribute("checkcode");// 浠庢湇鍔″櫒绔殑session涓彇鍑洪獙璇佺爜
+		if (validateCode.equals(serverCheckcode)) {// 灏嗗鎴风楠岃瘉鐮佸拰鏈嶅姟鍣ㄧ楠岃瘉姣旇緝锛屽鏋滅浉绛夛紝鍒欒〃绀洪獙璇侀�杩�			
+			System.out.println("success");
 		} else {
-			System.out.println("验证码验证失败！");
+			System.out.println("fail");
 			return "fail";
 		}
 
@@ -72,13 +71,12 @@ public class LoginAction extends ActionSupport {
 		user.setUsername(UserName);
 		user.setPassword(Password);
 		User user2 = adi.findUserByName(UserName);
-		System.out.println("成功登录,用户名:" + user2.getUsername() + "密码:" + user2.getPassword());
 		if (user2.getPassword().equals(user.getPassword())) {
-			System.out.println("成功登录,用户名:" + UserName + "密码:" + Password);
+			System.out.println("login success:" + UserName + " and password:" + Password);
 			request.getSession().setAttribute("users", user2);
 
 			WechatService wechatService = new WechatServiceImpl();
-			Wechat wechat = wechatService.findWechatByUser(user);
+			Wechat wechat = wechatService.findWechatByUser(user2);
 			request.getSession().setAttribute("wechat", wechat);
 			return "success";
 		} else

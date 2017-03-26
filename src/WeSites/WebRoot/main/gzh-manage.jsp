@@ -7,15 +7,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
-    <base href="<%=basePath%>">
     
     <title>My JSP 'gzh-manage.jsp' starting page</title>
-    
-	<meta http-equiv="pragma" content="no-cache">
-	<meta http-equiv="cache-control" content="no-cache">
-	<meta http-equiv="expires" content="0">    
-	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-	<meta http-equiv="description" content="This is my page">
+
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
@@ -30,11 +24,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    <!-- 页面主要内容 -->
-    <a class="btn btn-success btn-sm"  href = "showAccount.action">已注册公众号</a>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="../dist/css/jquery-3.1.1.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="../dist/js/bootstrap.min.js"></script>
+
+    <a class="btn btn-success"  href="showAccount.action">已注册公众号</a>
+
   </body>
 </html>

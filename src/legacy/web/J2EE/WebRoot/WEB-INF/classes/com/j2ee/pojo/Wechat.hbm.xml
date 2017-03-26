@@ -3,7 +3,7 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name = "com.j2ee.pojo.Wechat" table = "wechat" catalog = "j2eeproject">
+	<class name = "com.j2ee.pojo.Wechat" table = "wechat" catalog = "wesite">
 		<id name = "wechatid" type = "java.lang.Integer">
 			<column name="WECHATID"></column>
 			<generator class="identity"></generator>

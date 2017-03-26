@@ -7,7 +7,7 @@
 
 	<package name="loginAction" extends="struts-default">
 		<action name="login" class="com.wesites.core.LoginAction">
-			<result name="success" type="redirect">/manage.jsp</result>
+			<result name="success" type="redirect">/main.jsp</result>
 			<result name="fail">/index.jsp</result>
 		</action>
 	</package>
@@ -19,7 +19,7 @@
 		</action>
 	</package>
 
-	<package name="Manager" extends="struts-default">
+	<package name="Manager" extends="struts-default"  namespace="/">
 		<action name="compManager" class="com.wesites.core.ManagerAction">
 			<result name="success" type="redirect">/manager/compManager.jsp</result>
 		</action>
@@ -30,6 +30,8 @@
 
 		<action name="doManager" class="com.wesites.core.DoManagerAction">
 			<result name="success" type="redirect">/manager/compManager.jsp</result>
+			<result name="input" type="redirect">fail.jsp</result>
+			
 		</action>
 	</package>
 
@@ -39,14 +41,15 @@
 		</action>
 	</package>
 
-	<package name="BasicFunction" extends="struts-default">
+	<package name="BasicFunction" extends="struts-default"  namespace="/">
 		<action name="AutoReply" class="com.wesites.autoReply.AutoReplyAction">
 			<result name="success" type="redirect">/BasicFunction/showAllRule.jsp
 			</result>
 		</action>
 
 		<action name="AddRule" class="com.wesites.autoReply.AddRuleAction">
-			<result name="success" type="redirect">index.jsp</result>
+			<result name="success" type="redirect">success.html</result>
+			<result name="fail" type="redirect">fail.jsp</result>
 		</action>
 
 		<action name="DeleteRule" class="com.wesites.autoReply.DeleteRuleAction">
@@ -56,11 +59,10 @@
 		<action name="Menu" class="com.wesites.menu.MenuAction">
 			<result name="success" type="redirect">/BasicFunction/MenuManage.jsp
 			</result>
-			<result name="fail" type="redirect">index.jsp</result>
 		</action>
 		
 		<action name="AddMenu" class="com.wesites.menu.AddMenuAction">
-			<result name="success" type="redirect">index.jsp</result>
+			<result name="success" type="redirect">success.jsp</result>
 			<result name="fail" type="redirect">fail.jsp</result>
 		</action>
 

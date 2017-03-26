@@ -14,7 +14,7 @@ import com.wesites.wechat.pojo.AccessToken;
 import com.wesites.wechat.utils.WeixinUtil;
 
 /*
- * TODO 注释
+ * TODO 娉ㄩ噴
  */
 public class AddMenuAction extends ActionSupport {
 	/**
@@ -71,15 +71,15 @@ public class AddMenuAction extends ActionSupport {
 			menu.setWechatid(wechat.getWechatid());
 			dao.save(menu);
 			// TODO:WECHAT MENU's CREATE
-			WeixinUtil.setAPPID(wechat.getAppid());
-			WeixinUtil.setAPPSECRET(wechat.getAppsecret());
-			AccessToken token = WeixinUtil.getAccessToken();
-			String menuXML = JSONObject.fromObject(WeixinUtil.initMenu(menu)).toString();
-			int result = WeixinUtil.createMenu(token.getToken(), menuXML);
-			if (result == 0)
-				System.out.println("成功");
-			else
-				System.out.println("errorcode：" + result);
+//			WeixinUtil.setAPPID(wechat.getAppid());
+//			WeixinUtil.setAPPSECRET(wechat.getAppsecret());
+//			AccessToken token = WeixinUtil.getAccessToken();
+//			String menuXML = JSONObject.fromObject(WeixinUtil.initMenu(menu)).toString();
+//			int result = WeixinUtil.createMenu(token.getToken(), menuXML);
+//			if (result == 0)
+//				System.out.println("鎴愬姛");
+//			else
+//				System.out.println("errorcode锛� + result");
 			return "success";
 		} catch (Exception e) {
 			// TODO: handle exception

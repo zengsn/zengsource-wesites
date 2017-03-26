@@ -9,7 +9,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <title></title>
@@ -38,7 +37,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="container-fluid">
         <div class="row-fluid">
             <h4>内容管理员</h4>
-            <div class="add"><a class="btn btn-success" onclick="openadd();">新增</a></div>
+             <div class="add"><a class="btn btn-success" onclick="openadd();">新增</a></div>
             <div class="w">
                 <div class="span12">
                     <table class="table table-condensed table-bordered table-hover tab">
@@ -107,33 +106,33 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <h3 id="myModalLabel">添加管理员</h3>
                 </div>
                 <div class="modal-body">
-                    <form class="form-horizontal">
+                    <form class="form-horizontal" action="doManager.action?action='add'">
                         <div class="control-group">
                             <label class="control-label" for="roleName">姓名</label>
                             <div class="controls">
-                                <input type="text" id="userName" placeholder="姓名">
+                                <s:textfield name="rolename" label="rolename" type="text"  placeholder="姓名"/>
                             </div>
                         </div>
-                        <div class="control-group">
+                        <div class="control-group" >
                             <label class="control-label" for="roleRate">等级</label>
                             <div class="controls">
-                                <input type="text" id="Chinese" placeholder="等级">
+                                <s:textfield name="rolerate" label="rolerate"  placeholder="等级"/>
                             </div>
                         </div>
                         <div class="control-group">
                             <label class="control-label" for="phoneNumber">手机号码</label>
                             <div class="controls">
-                                <input type="text" id="Math" placeholder="手机号码">
+                                <s:textfield name="phonenumber" label="phonenumber" placeholder="手机号码"/>
                             </div>
                         </div>
-                        
+                        <div class="modal-footer">
+                        <s:submit  value="保存 "/>
+                   		<button class="btn" data-dismiss="modal" >关闭</button>
+                    	
+                		</div>
                     </form>
                 </div>
-                <div class="modal-footer">
-                    <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
-                    <button class="btn btn-primary" id="add" onclick="add();">保存</button>
-                    <button class="btn btn-primary" id="edt" onclick="edt();">保存</button>
-                </div>
+                
             </div>
         </div>
     </div>

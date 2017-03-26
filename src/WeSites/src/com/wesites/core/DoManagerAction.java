@@ -49,8 +49,14 @@ public class DoManagerAction extends ActionSupport {
 	}
 
 	public String execute() throws Exception {
-		add();
-		return "success";
+		try
+		{
+			add();
+			return "success";
+		}catch(Exception e)
+		{
+			return "fail";
+		}
 	}
 
 	public void add() {
