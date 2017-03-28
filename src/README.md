@@ -1,6 +1,3 @@
-# WeSites
-可以直接导入到Eclipse中。
-
 # 代码结构
 将工程重构为按模块划分代码。
 
@@ -8,8 +5,7 @@
 ![image](https://cloud.githubusercontent.com/assets/627946/20835099/a3d8b270-b8d3-11e6-825f-13daa3c73715.png)
 
 
-# Wesites
-基于微信公众平台的后台管理系统
+# 基于微信公众平台的后台管理系统
 第1章	功能及注意
 1.1	功能设置
 1.1.1	个人管理模块
